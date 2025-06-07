@@ -1,0 +1,37 @@
+version: '3.9'
+
+networks:
+  red_usuarios:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.10.0/24
+  red_servidores:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.20.0/24
+  red_dmz:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.30.0/24
+  red_admin:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.40.0/24
+
+services:
+  servicios_internos:
+    image: docker:24.0-dind
+    container_name: servicios_internos
+    privileged: true
+    networks:
+      red_servidores:
+        ipv4_address: 192.168.20.10
+      red_admin:
+        ipv4_address: 192.168.40.10
+    command: dockerd-entrypoint.sh
+    volumes:
+      - docke
