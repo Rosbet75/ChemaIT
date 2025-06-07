@@ -4,35 +4,37 @@ networks:
     name: chemait_red_usuarios
     ipam:
       config:
-        - subnet: 192.168.10.0/24
+        - subnet: 172.20.10.0/24
   red_servidores:
     driver: bridge
     name: chemait_red_servidores
     ipam:
       config:
-        - subnet: 192.168.20.0/24
+        - subnet: 172.20.20.0/24
   red_dmz:
     driver: bridge
     name: chemait_red_dmz
     ipam:
       config:
-        - subnet: 192.168.30.0/24
+        - subnet: 172.20.30.0/24
   red_admin:
     driver: bridge
     name: chemait_red_admin
     ipam:
       config:
-        - subnet: 192.168.40.0/24
+        - subnet: 172.20.40.0/24
 
 services:
 
   servicios_internos:
+    depends_on:
+      - firewall
     image: ubuntu:latest
     container_name: servicios_internos
     privileged: true
     networks:
       red_servidores:
-        ipv4_address: 192.168.20.10
+        ipv4_address: 172.20.20.10
     command: >
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl iproute2 &&
@@ -44,12 +46,14 @@ services:
     restart: always
 
   servidor_backup:
+    depends_on:
+      - firewall
     image: ubuntu:latest
     container_name: servidor_backup
     privileged: true
     networks:
       red_servidores:
-        ipv4_address: 192.168.20.20
+        ipv4_address: 172.20.20.20
     command: >
       bash -c "apt update &&
                apt install -y rsync net-tools iputils-ping curl iproute2 &&
@@ -61,12 +65,14 @@ services:
     restart: always
 
   servicios_externos:
+    depends_on:
+      - firewall
     image: ubuntu:latest
     container_name: servicios_externos
     privileged: true
     networks:
       red_dmz:
-        ipv4_address: 192.168.30.10
+        ipv4_address: 172.20.30.10
     command: >
       bash -c "apt update &&
                apt install -y nginx net-tools iputils-ping curl iproute2 &&
@@ -81,12 +87,14 @@ services:
     restart: always
 
   cliente:
+    depends_on:
+      - firewall
     image: ubuntu:latest
     container_name: cliente
     privileged: true
     networks:
       red_usuarios:
-        ipv4_address: 192.168.10.10
+        ipv4_address: 172.20.10.10
     command: >
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl iproute2 &&
@@ -97,12 +105,14 @@ services:
     restart: always
 
   admin_test:
+    depends_on:
+    - firewall
     image: ubuntu:latest
     container_name: admin_test
     privileged: true
     networks:
       red_admin:
-        ipv4_address: 192.168.40.20
+        ipv4_address: 172.20.40.20
     command: >
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl htop iproute2 &&
@@ -118,22 +128,20 @@ services:
     privileged: true
     networks:
       red_usuarios:
-        ipv4_address: 192.168.10.1
+        ipv4_address: 172.20.10.1
       red_servidores:
-        ipv4_address: 192.168.20.1
+        ipv4_address: 172.20.20.1
       red_dmz:
-        ipv4_address: 192.168.30.1
+        ipv4_address: 172.20.30.1
       red_admin:
-        ipv4_address: 192.168.40.1
+        ipv4_address: 172.20.40.1
     command: >
-      bash -c "apt update &&
-               apt install -y iptables iproute2 net-tools iputils-ping curl &&
-               sysctl -w net.ipv4.ip_forward=1 &&
-               bash /routes/firewall_rules.sh &&
-               tail -f /dev/null"
+      bash -c "sysctl -w net.ipv4.ip_forward=1 && echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf && apt update &&
+               apt install -y iptables iproute2 net-tools iputils-ping curl && bash /routes/firewall_rules.sh && tail -f /dev/null"
+    restart: always
     volumes:
       - ./routes:/routes:ro
-    restart: always
+
 
 volumes:
   docker-interno:
