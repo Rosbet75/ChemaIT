@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   email:
     image: juanluisbaptiste/postfix:latest
@@ -35,6 +37,7 @@ services:
     restart: always
 
 
+
   datos-compartidos-windows:
     image: dperson/samba
     container_name: datos-compartidos-windows
@@ -51,15 +54,18 @@ services:
     restart: always
 
 
+
   impresion-red:
-  image: olbat/cupsd:latest
-  container_name: impresion-red
-  ports:
-    - "631:631"
-  volumes:
-    - ./config/cups:/etc/cups
-    - ./data/cups:/var/spool/cups
-  restart: always
+    image: olbat/cupsd:latest
+    container_name: impresion-red
+    ports:
+      - "631:631"
+    volumes:
+      - ./config/cups:/etc/cups
+      - ./data/cups:/var/spool/cups
+    restart: always
+
+
 
   servidor-web:
     image: nginx:latest
@@ -83,3 +89,13 @@ services:
     volumes:
       - ./mysql-data:/var/lib/mysql
     restart: always
+
+
+
+  libreoffice:
+    image: libreoffice/docker-libreoffice
+    container_name: libreoffice
+    command: soffice --headless --accept="socket,host=0.0.0.0,port=8100;urp;" --nofirststartwizard
+    ports:
+      - "8100:8100"
+    restart: unless-stopped
