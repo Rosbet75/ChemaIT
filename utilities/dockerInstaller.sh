@@ -4,6 +4,7 @@ set -e
 echo "Instalando docker ############################################################################"
 # Forzar modo no interactivo
 export DEBIAN_FRONTEND=noninteractive
+export GPG_TTY=$(tty) || export GPG_TTY=/dev/console
 
 # Configura la zona horaria automáticamente para evitar prompts
 ln -fs /usr/share/zoneinfo/America/Mexico_City /etc/localtime
@@ -23,7 +24,7 @@ apt-get install -y \
 install -m 0755 -d /etc/apt/keyrings
 
 # Descarga la clave GPG
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --batch --yes --dearmor -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
 
 # Agrega el repositorio de Docker
