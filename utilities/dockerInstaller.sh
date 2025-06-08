@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+echo "Instalando docker ############################################################################"
 # Forzar modo no interactivo
 export DEBIAN_FRONTEND=noninteractive
 
