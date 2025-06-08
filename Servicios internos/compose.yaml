@@ -24,8 +24,8 @@ services:
     environment:
       LDAP_ORGANISATION: "NtEum S.A."
       LDAP_DOMAIN: "nteum.local"
-      LDAP_ADMIN_PASSWORD: "agba"
-      LDAP_CONFIG_PASSWORD: "agba"
+      LDAP_ADMIN_PASSWORD: "eneto"
+      LDAP_CONFIG_PASSWORD: "eneto"
       LDAP_TLS: "true"
       LDAP_TLS_CRT_FILENAME: "ldap.crt"
       LDAP_TLS_KEY_FILENAME: "ldap.key"
@@ -48,8 +48,8 @@ services:
     volumes:
       - ./compartido:/mount
     command: >
-      -u "agba;agba"
-      -s "public;/mount;yes;no;no;agba"
+      -u "eneto;eneto"
+      -s "public;/mount;yes;no;no;eneto"
     restart: always
 
 
