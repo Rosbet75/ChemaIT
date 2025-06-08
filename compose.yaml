@@ -51,10 +51,11 @@ services:
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl iproute2 &&
                bash /routes/red_servidores_routes.sh &&
-               tail -f /dev/null"
+               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
     volumes:
       - docker-interno:/var/lib/docker
       - ./routes:/routes:ro
+      - ./utilities:/utilities
     restart: always
 
   servidor_backup:
@@ -71,10 +72,11 @@ services:
       bash -c "apt update &&
                apt install -y rsync net-tools iputils-ping curl iproute2 &&
                bash /routes/red_servidores_routes.sh &&
-               tail -f /dev/null"
+               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
     volumes:
       - docker-interno:/var/lib/docker
       - ./routes:/routes:ro
+      - ./utilities:/utilities
     restart: always
 
   servicios_externos:
@@ -92,10 +94,11 @@ services:
                apt install -y nginx net-tools iputils-ping curl iproute2 &&
                service nginx start &&
                bash /routes/red_dmz_routes.sh &&
-               tail -f /dev/null"
+               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
     volumes:
       - docker-externo:/var/lib/docker
       - ./routes:/routes:ro
+      - ./utilities:/utilities
     ports:
       - "80:80"
     restart: always
@@ -114,9 +117,10 @@ services:
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl iproute2 &&
                bash /routes/red_usuarios_routes.sh &&
-               tail -f /dev/null"
+               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
     volumes:
       - ./routes:/routes:ro
+      - ./utilities:/utilities
     restart: always
 
   admin_test:
@@ -133,9 +137,10 @@ services:
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl htop iproute2 &&
                bash /routes/red_admin_routes.sh &&
-               tail -f /dev/null"
+               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
     volumes:
       - ./routes:/routes:ro
+      - ./utilities:/utilities
     restart: always
 
   firewall:
@@ -163,7 +168,7 @@ services:
       - ./LOGS:/LOGS
       - ./utilities:/utilities
     healthcheck:
-      test: ["CMD", "/routes/healthcheck.sh"]
+      test: ["CMD-SHELL", "chmod +x /utilities/healthcheck.sh && /utilities/healthcheck.sh"]
       interval: 5s
       timeout: 30s
       retries: 10
