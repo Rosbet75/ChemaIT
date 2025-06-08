@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   servidor_backup:
     image: alpinelinux/rsyncd:latest
@@ -14,7 +16,13 @@ services:
       RSYNC_MODULE_respaldo_comment: "Carpeta de respaldo"
       RSYNC_MODULE_respaldo_path: /data
       RSYNC_MODULE_respaldo_read_only: "false"
-      RSYNC_LOGFILE: /var/log/rsyncd.log
     networks:
       red_servidores:
-        ipv4_address: 172.172.20.20
+        ipv4_address: 172.25.0.10
+
+networks:
+  red_servidores:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
