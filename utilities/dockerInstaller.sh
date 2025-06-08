@@ -73,30 +73,28 @@ apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin do
 
 
 # Si no se está usando systemd, iniciar dockerd manualmente
-if [ "$USE_SYSTEMD" = "no" ]; then
-  echo "[INFO] Iniciando dockerd manualmente..."
+echo "[INFO] Iniciando dockerd manualmente..."
   
-  # Crea el directorio si no existe
-  mkdir -p /var/run
+# Crea el directorio si no existe
+mkdir -p /var/run
 
-  # Inicia dockerd en segundo plano, log a un archivo
-  dockerd > /setup/logs/docker/dockerd.log 2>&1 &
-  
-  # Espera a que esté disponible el socket de Docker (máx 15s)
-  for i in {1..15}; do
-    if [ -S /var/run/docker.sock ]; then
-      echo "[INFO] Docker daemon está listo."
-      break
-    fi
-    echo "[INFO] Esperando que dockerd arranque... ($i)"
-    sleep 1
-  done
+# Inicia dockerd en segundo plano, log a un archivo
+dockerd > /setup/logs/docker/dockerd.log 2>&1 &
 
-  # Validación final
-  if ! docker info &>/dev/null; then
-    echo "[ERROR] El demonio Docker no se pudo iniciar correctamente."
-    exit 1
-  fi
+# Espera a que esté disponible el socket de Docker (máx 15s)
+for i in {1..15}; do
+if [ -S /var/run/docker.sock ]; then
+    echo "[INFO] Docker daemon está listo."
+    break
+fi
+echo "[INFO] Esperando que dockerd arranque... ($i)"
+sleep 1
+done
+
+# Validación final
+if ! docker info &>/dev/null; then
+echo "[ERROR] El demonio Docker no se pudo iniciar correctamente."
+exit 1
 fi
 
 cd /setup
