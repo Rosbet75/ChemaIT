@@ -1,0 +1,246 @@
+time="2025-06-08T17:56:08.693656395-06:00" level=info msg="Starting up"
+time="2025-06-08T17:56:08.694964064-06:00" level=info msg="containerd not running, starting managed containerd"
+time="2025-06-08T17:56:08.696727458-06:00" level=info msg="started new containerd process" address=/var/run/docker/containerd/containerd.sock module=libcontainerd pid=5297
+time="2025-06-08T17:56:08.727101876-06:00" level=info msg="starting containerd" revision=05044ec0a9a75232cad458027ca83437aae3f4da version=1.7.27
+time="2025-06-08T17:56:08.745203240-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.aufs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.746034084-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.aufs\"..." error="aufs is not supported (modprobe aufs failed: exec: \"modprobe\": executable file not found in $PATH \"\"): skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.746258496-06:00" level=info msg="loading plugin \"io.containerd.event.v1.exchange\"..." type=io.containerd.event.v1
+time="2025-06-08T17:56:08.746443906-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.opt\"..." type=io.containerd.internal.v1
+time="2025-06-08T17:56:08.748816232-06:00" level=info msg="loading plugin \"io.containerd.warning.v1.deprecations\"..." type=io.containerd.warning.v1
+time="2025-06-08T17:56:08.749019643-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.749241055-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." error="no scratch file generator: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.749490268-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.749909190-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs (ext4) must be a btrfs filesystem to be used with the btrfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.750105901-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.750318612-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." error="devmapper not configured: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.750532323-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.native\"..." type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.750755035-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.overlayfs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.751089953-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.zfs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.751489674-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.zfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-08T17:56:08.751724587-06:00" level=info msg="loading plugin \"io.containerd.content.v1.content\"..." type=io.containerd.content.v1
+time="2025-06-08T17:56:08.751895696-06:00" level=info msg="loading plugin \"io.containerd.metadata.v1.bolt\"..." type=io.containerd.metadata.v1
+time="2025-06-08T17:56:08.752089706-06:00" level=info msg="metadata content store policy set" policy=shared
+time="2025-06-08T17:56:08.752588833-06:00" level=info msg="loading plugin \"io.containerd.gc.v1.scheduler\"..." type=io.containerd.gc.v1
+time="2025-06-08T17:56:08.752804944-06:00" level=info msg="loading plugin \"io.containerd.differ.v1.walking\"..." type=io.containerd.differ.v1
+time="2025-06-08T17:56:08.752988854-06:00" level=info msg="loading plugin \"io.containerd.lease.v1.manager\"..." type=io.containerd.lease.v1
+time="2025-06-08T17:56:08.753236267-06:00" level=info msg="loading plugin \"io.containerd.streaming.v1.manager\"..." type=io.containerd.streaming.v1
+time="2025-06-08T17:56:08.753424777-06:00" level=info msg="loading plugin \"io.containerd.runtime.v1.linux\"..." type=io.containerd.runtime.v1
+time="2025-06-08T17:56:08.754461132-06:00" level=info msg="loading plugin \"io.containerd.monitor.v1.cgroups\"..." type=io.containerd.monitor.v1
+time="2025-06-08T17:56:08.754899556-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.task\"..." type=io.containerd.runtime.v2
+time="2025-06-08T17:56:08.755804704-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.shim\"..." type=io.containerd.runtime.v2
+time="2025-06-08T17:56:08.755976713-06:00" level=info msg="loading plugin \"io.containerd.sandbox.store.v1.local\"..." type=io.containerd.sandbox.store.v1
+time="2025-06-08T17:56:08.756158123-06:00" level=info msg="loading plugin \"io.containerd.sandbox.controller.v1.local\"..." type=io.containerd.sandbox.controller.v1
+time="2025-06-08T17:56:08.756342633-06:00" level=info msg="loading plugin \"io.containerd.service.v1.containers-service\"..." type=io.containerd.service.v1
+time="2025-06-08T17:56:08.756546244-06:00" level=info msg="loading plugin \"io.containerd.service.v1.content-service\"..." type=io.containerd.service.v1
+time="2025-06-08T17:56:08.756720253-06:00" level=info msg="loading plugin \"io.containerd.service.v1.diff-service\"..." type=io.containerd.service.v1
+time="2025-06-08T17:56:08.756884162-06:00" level=info msg="loading plugin \"io.containerd.service.v1.images-service\"..." type=io.containerd.service.v1
+time="2025-06-08T17:56:08.757034270-06:00" level=info msg="loading plugin \"io.containerd.service.v1.introspection-service\"..." type=io.containerd.service.v1
+time="2025-06-08T17:56:08.757192478-06:00" level=info msg="loading plugin \"io.containerd.service.v1.namespaces-service\"..." type=io.containerd.service.v1
+time="2025-06-08T17:56:08.757400089-06:00" level=info msg="loading plugin \"io.containerd.service.v1.snapshots-service\"..." type=io.containerd.service.v1
+time="2025-06-08T17:56:08.757655903-06:00" level=info msg="loading plugin \"io.containerd.service.v1.tasks-service\"..." type=io.containerd.service.v1
+time="2025-06-08T17:56:08.757857813-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.containers\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.758055824-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.content\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.758245934-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.diff\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.758436344-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.events\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.758614354-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.images\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.759127881-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.introspection\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.759323191-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.leases\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.759495301-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.namespaces\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.759655709-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandbox-controllers\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.759838419-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandboxes\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.760019628-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.snapshots\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.760187737-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.streaming\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.760380648-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.tasks\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.760574858-06:00" level=info msg="loading plugin \"io.containerd.transfer.v1.local\"..." type=io.containerd.transfer.v1
+time="2025-06-08T17:56:08.760774469-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.transfer\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.761073985-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.version\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.761286696-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.restart\"..." type=io.containerd.internal.v1
+time="2025-06-08T17:56:08.761545410-06:00" level=info msg="loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." type=io.containerd.tracing.processor.v1
+time="2025-06-08T17:56:08.761763821-06:00" level=info msg="skip loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.tracing.processor.v1
+time="2025-06-08T17:56:08.762624267-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.tracing\"..." type=io.containerd.internal.v1
+time="2025-06-08T17:56:08.762932184-06:00" level=info msg="skip loading plugin \"io.containerd.internal.v1.tracing\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.internal.v1
+time="2025-06-08T17:56:08.763163796-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.healthcheck\"..." type=io.containerd.grpc.v1
+time="2025-06-08T17:56:08.763439611-06:00" level=info msg="loading plugin \"io.containerd.nri.v1.nri\"..." type=io.containerd.nri.v1
+time="2025-06-08T17:56:08.763616620-06:00" level=info msg="NRI interface is disabled by configuration."
+time="2025-06-08T17:56:08.764168149-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd-debug.sock
+time="2025-06-08T17:56:08.764508668-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock.ttrpc
+time="2025-06-08T17:56:08.764828585-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock
+time="2025-06-08T17:56:08.765065597-06:00" level=info msg="containerd successfully booted in 0.040491s"
+time="2025-06-08T17:56:08.772558296-06:00" level=info msg="OTEL tracing is not configured, using no-op tracer provider"
+time="2025-06-08T17:56:08.792773673-06:00" level=info msg="Creating a containerd client" address=/var/run/docker/containerd/containerd.sock timeout=1m0s
+time="2025-06-08T17:56:08.956482690-06:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
+time="2025-06-08T17:56:08.964590821-06:00" level=info msg="Loading containers: start."
+time="2025-06-08T17:56:09.669788671-06:00" level=info msg="Removing stale sandbox" cid=9268b1f270ad isRestore=false sid=893a2b98c075
+time="2025-06-08T17:56:09.792626912-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
+time="2025-06-08T17:56:09.792931828-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 fa97108194797f2dcf35843b6b18f1454db84d173c4e472a688d0fd0c2cfdc57], retrying...."
+time="2025-06-08T17:56:09.848960412-06:00" level=info msg="Removing stale sandbox" cid=9b7fd5404984 isRestore=false sid=958c17f66a9e
+time="2025-06-08T17:56:10.262147113-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
+time="2025-06-08T17:56:10.267449695-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 2c53341fdd814b1e5fe9a2d626ddd6167290423da94c03775db9107957d606d8], retrying...."
+time="2025-06-08T17:56:10.312631701-06:00" level=info msg="Removing stale sandbox" cid=23167191df2d isRestore=false sid=9ef13c2a3a6d
+time="2025-06-08T17:56:10.401638941-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
+time="2025-06-08T17:56:10.403452737-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 a8f4d2311ec46d1180e81cfebc6c0f2622ce69a88e4f03b15b355686c270d2f8], retrying...."
+time="2025-06-08T17:56:10.789463991-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint_count 6f55e9a2c60ca78c3c0918d6c30868512a137d21d8d16bbd22b99771281732f6], retrying...."
+time="2025-06-08T17:56:10.848573439-06:00" level=warning msg="error locating sandbox id 958c17f66a9e91995718db4c1b9ac5bd0133ce26833312f77b200b4ecb7b0105: sandbox 958c17f66a9e91995718db4c1b9ac5bd0133ce26833312f77b200b4ecb7b0105 not found"
+time="2025-06-08T17:56:10.848928058-06:00" level=warning msg="error locating sandbox id 9ef13c2a3a6d56829216973a6e556744a1b32940db4e486d2ff22fdaf26dc720: sandbox 9ef13c2a3a6d56829216973a6e556744a1b32940db4e486d2ff22fdaf26dc720 not found"
+time="2025-06-08T17:56:10.849123968-06:00" level=warning msg="error locating sandbox id 893a2b98c075d4f384a2dfaf2628f5f0e06817b9288fdd5b745ba2bad034135a: sandbox 893a2b98c075d4f384a2dfaf2628f5f0e06817b9288fdd5b745ba2bad034135a not found"
+time="2025-06-08T17:56:11.031740892-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:11.044571975-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:11.056963035-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:11.106848591-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:11.160366241-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:11.160759262-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/23167191df2d23f415595daaead174a03cb3806b4277a2d3e785105abe290bf8/memory.events\": no such file or directory"
+time="2025-06-08T17:56:11.198962896-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:11.231459527-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:11.253298089-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:11.253594405-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:11.555969206-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:11.556287123-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/9b7fd540498441238bfbc422f653f9ba94bbcb3aeca0ef92b5f6711674979aa4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:11.601203414-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:11.601587335-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/9268b1f270add7f67d12d4f1050b71f9aed0e08a87854df8ef749ae99694078f/memory.events\": no such file or directory"
+time="2025-06-08T17:56:11.646676936-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:11.647007553-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:11.675077448-06:00" level=info msg="ignoring event" container=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:11.675211755-06:00" level=info msg="shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:11.675919093-06:00" level=warning msg="cleaning up after shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:11.676083302-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:11.717740120-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:11.718003134-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd/memory.events\": no such file or directory"
+time="2025-06-08T17:56:11.725895254-06:00" level=info msg="Loading containers: done."
+time="2025-06-08T17:56:11.825061334-06:00" level=info msg="Docker daemon" commit=45873be containerd-snapshotter=false storage-driver=overlay2 version=28.2.2
+time="2025-06-08T17:56:11.988678947-06:00" level=info msg="shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:11.988834255-06:00" level=info msg="ignoring event" container=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:11.989352182-06:00" level=warning msg="cleaning up after shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:11.989816007-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:12.191719458-06:00" level=info msg="ignoring event" container=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:12.192970525-06:00" level=info msg="shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:12.206760959-06:00" level=warning msg="cleaning up after shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:12.207689708-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:12.448462429-06:00" level=info msg="Initializing buildkit"
+time="2025-06-08T17:56:12.451524492-06:00" level=warning msg="CDI setup error /etc/cdi: failed to monitor for changes: no such file or directory"
+time="2025-06-08T17:56:12.451789106-06:00" level=warning msg="CDI setup error /var/run/cdi: failed to monitor for changes: no such file or directory"
+time="2025-06-08T17:56:12.469045825-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:12.496429583-06:00" level=info msg="Completed buildkit initialization"
+time="2025-06-08T17:56:12.505450463-06:00" level=info msg="Daemon has completed initialization"
+time="2025-06-08T17:56:12.505843684-06:00" level=info msg="API listen on /var/run/docker.sock"
+time="2025-06-08T17:56:12.653230132-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:12.654080978-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:12.661315863-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:12.709920151-06:00" level=info msg="shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:12.710118862-06:00" level=info msg="ignoring event" container=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:12.710218067-06:00" level=warning msg="cleaning up after shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:12.710634189-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:12.782759829-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:12.817834497-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:12.818139713-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd/memory.events\": no such file or directory"
+time="2025-06-08T17:56:12.979428202-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:12.979790621-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:13.079162412-06:00" level=info msg="shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:13.079206715-06:00" level=info msg="ignoring event" container=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:13.079510731-06:00" level=warning msg="cleaning up after shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:13.080097462-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:13.514676202-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:13.657589712-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:13.657944731-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:13.689870231-06:00" level=info msg="shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:13.690053341-06:00" level=info msg="ignoring event" container=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:13.690403759-06:00" level=warning msg="cleaning up after shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:13.690764978-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:13.724450372-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:13.906652374-06:00" level=info msg="shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:13.907016893-06:00" level=info msg="ignoring event" container=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:13.907123799-06:00" level=warning msg="cleaning up after shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:13.907558922-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:14.040938124-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:14.041356347-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd/memory.events\": no such file or directory"
+time="2025-06-08T17:56:14.336017028-06:00" level=info msg="shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:14.337072980-06:00" level=warning msg="cleaning up after shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:14.336160835-06:00" level=info msg="ignoring event" container=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:14.337302291-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:14.408613387-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:14.729887435-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:14.730211451-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:14.754293531-06:00" level=info msg="shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:14.754489741-06:00" level=info msg="ignoring event" container=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:14.754820557-06:00" level=warning msg="cleaning up after shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:14.755207976-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:14.762963656-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:14.938573864-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:14.938852178-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:15.198188090-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:15.395626168-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:15.397655667-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd/memory.events\": no such file or directory"
+time="2025-06-08T17:56:15.871368488-06:00" level=info msg="shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:15.871480293-06:00" level=info msg="ignoring event" container=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:15.871852611-06:00" level=warning msg="cleaning up after shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:15.872271932-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:15.880583439-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:16.137229720-06:00" level=info msg="shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:16.137289422-06:00" level=info msg="ignoring event" container=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:16.137745045-06:00" level=warning msg="cleaning up after shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:16.138178766-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:16.137396528-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:16.137708543-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:16.166380348-06:00" level=info msg="shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:16.166612960-06:00" level=info msg="ignoring event" container=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:16.166679863-06:00" level=warning msg="cleaning up after shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:16.167732015-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:16.727535055-06:00" level=error msg="Error handling plugin refcount operation" driver= error="legacy plugin: Unable to find plugin without name" mode=1
+time="2025-06-08T17:56:16.832587004-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:16.845668846-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:16.972264351-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:16.973545014-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:16.976841475-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:17.060187161-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:17.060728587-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd/memory.events\": no such file or directory"
+time="2025-06-08T17:56:17.109758691-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:17.110047205-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/701ed1fedb85ff865539181e09606e50f3959c0906d36f5186e56c08e6b1f3bc/memory.events\": no such file or directory"
+time="2025-06-08T17:56:17.326366508-06:00" level=info msg="shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:17.326665323-06:00" level=info msg="ignoring event" container=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:17.326757528-06:00" level=warning msg="cleaning up after shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:17.327216150-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:17.839629067-06:00" level=info msg="shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:17.839901681-06:00" level=info msg="ignoring event" container=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:17.840392705-06:00" level=warning msg="cleaning up after shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:17.840857128-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:17.962163074-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:18.142497713-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:18.142850831-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:18.164177376-06:00" level=info msg="shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:18.164475691-06:00" level=warning msg="cleaning up after shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:18.164579196-06:00" level=info msg="ignoring event" container=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:18.164913512-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:18.797443217-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:18.904798280-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:18.905066593-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:19.107575219-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:19.260078795-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:19.260328107-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd/memory.events\": no such file or directory"
+time="2025-06-08T17:56:19.489372534-06:00" level=info msg="shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:19.489796455-06:00" level=warning msg="cleaning up after shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:19.489446138-06:00" level=info msg="ignoring event" container=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:19.490029466-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:19.688587999-06:00" level=info msg="shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:19.688913015-06:00" level=info msg="ignoring event" container=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:19.689004220-06:00" level=warning msg="cleaning up after shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:19.689332936-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:21.499807781-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:21.570600551-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:21.615159336-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:21.615507453-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:21.675486493-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:21.675878312-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4/memory.events\": no such file or directory"
+time="2025-06-08T17:56:21.699027247-06:00" level=info msg="shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:21.699208955-06:00" level=info msg="ignoring event" container=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:21.699253058-06:00" level=warning msg="cleaning up after shim disconnected" id=626458f421562c9036230f9bccdc53161ec6172ffb0dac44b6e7d04a34d6e0d4 namespace=moby
+time="2025-06-08T17:56:21.699757582-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:22.375695530-06:00" level=info msg="shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:22.375726032-06:00" level=info msg="ignoring event" container=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:22.376118449-06:00" level=warning msg="cleaning up after shim disconnected" id=dba8142649ec5985b6f3aa3087de2de5984799ce559c2fe529678d8f725a8da4 namespace=moby
+time="2025-06-08T17:56:22.376546768-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-08T17:56:22.862227422-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-08T17:56:22.995380131-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-08T17:56:22.995679344-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd/memory.events\": no such file or directory"
+time="2025-06-08T17:56:23.210220266-06:00" level=info msg="shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:23.210344271-06:00" level=info msg="ignoring event" container=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-08T17:56:23.210761390-06:00" level=warning msg="cleaning up after shim disconnected" id=e7510fdc8cb9362db0e57f928e1a223e30922addea587e45a582da59697fdedd namespace=moby
+time="2025-06-08T17:56:23.211199609-06:00" level=info msg="cleaning up dead shim" namespace=moby
