@@ -50,10 +50,9 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && cd /Servicios-internos && docker compose up && cd / &&
-               tail -f /dev/null"
+               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && tail -f /dev/null"
     volumes:
-      - ./Servicios-internos:/Servicios-internos
+      - ./Servicios-internos:/setup
       - docker-interno:/var/lib/docker
       - ./routes:/routes:ro
       - ./utilities:/utilities
@@ -72,10 +71,10 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y rsync net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && cd /servidor-backup && docker compose up && cd / &&
+               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
                tail -f /dev/null"
     volumes:
-      - ./servidor-backup:/servidor-backup
+      - ./servidor-backup:/setup
       - docker-interno:/var/lib/docker
       - ./routes:/routes:ro
       - ./utilities:/utilities
@@ -94,9 +93,9 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && cd /Servicios-externos &&  tail -f /dev/null "
+               bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && tail -f /dev/null "
     volumes:
-      - ./Servicios-externos:/Servicios-externos
+      - ./Servicios-externos:/setup
       - docker-externo:/var/lib/docker
       - ./routes:/routes:ro
       - ./utilities:/utilities
@@ -120,7 +119,7 @@ services:
                bash /routes/red_usuarios_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
                tail -f /dev/null"
     volumes:
-      - ./Usuarios-internos:/Usuarios-internos
+      - ./Usuarios-internos:/setup
       - ./routes:/routes:ro
       - ./utilities:/utilities
     restart: always

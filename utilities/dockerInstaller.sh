@@ -50,22 +50,54 @@ echo \
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Si el sistema usa systemd, habilita e inicia Docker
-if [ "$USE_SYSTEMD" = "yes" ]; then
-  systemctl enable docker || echo "[WARN] No se pudo habilitar Docker."
-  systemctl start docker || echo "[WARN] No se pudo iniciar Docker."
-else
-  echo "[INFO] El sistema no usa systemd. No se puede habilitar Docker al inicio automáticamente."
+# # Si el sistema usa systemd, habilita e inicia Docker
+# if [ "$USE_SYSTEMD" = "yes" ]; then
+#   systemctl enable docker || echo "[WARN] No se pudo habilitar Docker."
+#   systemctl start docker || echo "[WARN] No se pudo iniciar Docker."
+# else
+#   echo "[INFO] El sistema no usa systemd. No se puede habilitar Docker al inicio automáticamente."
+# fi
+
+# # Verifica la instalación
+# docker --version || echo "[ERROR] No se pudo verificar la versión de Docker."
+# docker compose version || echo "[ERROR] No se pudo verificar la versión de Docker Compose."
+
+# # Ejecuta contenedor de prueba sin abortar si falla
+# set +e
+# docker run --rm hello-world
+# if [ $? -ne 0 ]; then
+#   echo "[ERROR] No se pudo ejecutar el contenedor de prueba."
+# fi
+# set -e
+
+
+
+# Si no se está usando systemd, iniciar dockerd manualmente
+if [ "$USE_SYSTEMD" = "no" ]; then
+  echo "[INFO] Iniciando dockerd manualmente..."
+  
+  # Crea el directorio si no existe
+  mkdir -p /var/run
+
+  # Inicia dockerd en segundo plano, log a un archivo
+  dockerd > /setup/logs/docker/dockerd.log 2>&1 &
+  
+  # Espera a que esté disponible el socket de Docker (máx 15s)
+  for i in {1..15}; do
+    if [ -S /var/run/docker.sock ]; then
+      echo "[INFO] Docker daemon está listo."
+      break
+    fi
+    echo "[INFO] Esperando que dockerd arranque... ($i)"
+    sleep 1
+  done
+
+  # Validación final
+  if ! docker info &>/dev/null; then
+    echo "[ERROR] El demonio Docker no se pudo iniciar correctamente."
+    exit 1
+  fi
 fi
 
-# Verifica la instalación
-docker --version || echo "[ERROR] No se pudo verificar la versión de Docker."
-docker compose version || echo "[ERROR] No se pudo verificar la versión de Docker Compose."
-
-# Ejecuta contenedor de prueba sin abortar si falla
-set +e
-docker run --rm hello-world
-if [ $? -ne 0 ]; then
-  echo "[ERROR] No se pudo ejecutar el contenedor de prueba."
-fi
-set -e
+cd /setup
+docker compose up
