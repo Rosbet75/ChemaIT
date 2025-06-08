@@ -1,4 +1,3 @@
-version: "3.8"
 
 services:
   email:
@@ -92,10 +91,10 @@ services:
 
 
 
-  libreoffice:
-    image: libreoffice/docker-libreoffice
-    container_name: libreoffice
-    command: soffice --headless --accept="socket,host=0.0.0.0,port=8100;urp;" --nofirststartwizard
-    ports:
-      - "8100:8100"
-    restart: unless-stopped
+  # libreoffice:
+  #   image: libreoffice/docker-libreoffice
+  #   container_name: libreoffice
+  #   command: soffice --headless --accept="socket,host=0.0.0.0,port=8100;urp;" --nofirststartwizard
+  #   ports:
+  #     - "8100:8100"
+  #   restart: unless-stopped

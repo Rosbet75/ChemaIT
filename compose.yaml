@@ -146,15 +146,17 @@ services:
         ipv4_address: 172.172.40.2
     
     command: >
-      bash -c "apt update && apt install -y iptables iproute2 net-tools iputils-ping curl && sysctl -w net.ipv4.ip_forward=1 && echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf && bash /routes/firewall_rules.sh && tail -f /dev/null && sleep infinity"
+      bash -c "apt update && apt install -y iptables iproute2 net-tools iputils-ping curl tcpdump && sysctl -w net.ipv4.ip_forward=1 && echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf && bash /routes/firewall_rules.sh && tail -f /dev/null && sleep infinity"
     
     restart: always
     volumes:
       - ./routes:/routes:ro
+      - ./LOGS:/LOGS
+      - ./utilities:/utilities
     healthcheck:
       test: ["CMD", "/routes/healthcheck.sh"]
       interval: 5s
-      timeout: 3s
+      timeout: 30s
       retries: 10
 
 

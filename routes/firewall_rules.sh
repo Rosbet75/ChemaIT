@@ -39,3 +39,7 @@ iptables -A FORWARD -i eth3 -o eth2 -j ACCEPT
 # Permitir tráfico establecido y relacionado
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+
+#Esta es una regla para loggear
+iptables -I FORWARD -j LOG --log-prefix "FIREWALL-FORWARD: "
