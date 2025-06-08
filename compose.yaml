@@ -27,6 +27,13 @@ networks:
       config:
         - subnet: 172.172.40.0/24
           gateway: 172.172.40.1
+  red_impresion:
+    driver: bridge
+    name: chemait_red_impresion
+    ipam:
+      config:
+        - subnet: 172.172.50.0/24
+          gateway: 172.172.50.1
 
 services:
 
@@ -144,6 +151,8 @@ services:
         ipv4_address: 172.172.30.2
       red_admin:
         ipv4_address: 172.172.40.2
+      red_impresion:
+        ipv4_address: 172.172.50.2
     
     command: >
       bash -c "apt update && apt install -y iptables iproute2 net-tools iputils-ping curl tcpdump && sysctl -w net.ipv4.ip_forward=1 && echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf && bash /routes/firewall_rules.sh && tail -f /dev/null && sleep infinity"
