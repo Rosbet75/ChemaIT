@@ -94,7 +94,7 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && cd /Servicios-externos && docker compose up && cd / && tail -f /dev/null "
+               bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && cd /Servicios-externos &&  tail -f /dev/null "
     volumes:
       - ./Servicios-externos:/Servicios-externos
       - docker-externo:/var/lib/docker

@@ -1,10 +1,22 @@
 #!/bin/bash
 set -e
 
+LOCKFILE="/tmp/docker_install.lock"
+if [ -f "$LOCKFILE" ]; then
+  echo "[INFO] Instalación ya realizada previamente. Validando instalación..."
+  docker --version && docker compose version && exit 0
+  echo "[WARN] Docker no está funcionando correctamente. Continuando con reinstalación..."
+else
+  touch "$LOCKFILE"
+fi
+
+# Detecta si el sistema usa systemd
+USE_SYSTEMD=$(ps -p 1 -o comm= | grep -q systemd && echo yes || echo no)
+
 echo "Instalando docker ############################################################################"
 # Forzar modo no interactivo
 export DEBIAN_FRONTEND=noninteractive
-export GPG_TTY=$(tty) || export GPG_TTY=/dev/console
+unset GPG_TTY  # Evita errores con GPG sin tty
 
 # Configura la zona horaria automáticamente para evitar prompts
 ln -fs /usr/share/zoneinfo/America/Mexico_City /etc/localtime
@@ -38,13 +50,22 @@ echo \
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Habilita Docker para que inicie automáticamente al arrancar
-systemctl enable docker
-
-# Inicia Docker ahora mismo (por si aún no lo está)
-systemctl start docker
+# Si el sistema usa systemd, habilita e inicia Docker
+if [ "$USE_SYSTEMD" = "yes" ]; then
+  systemctl enable docker || echo "[WARN] No se pudo habilitar Docker."
+  systemctl start docker || echo "[WARN] No se pudo iniciar Docker."
+else
+  echo "[INFO] El sistema no usa systemd. No se puede habilitar Docker al inicio automáticamente."
+fi
 
 # Verifica la instalación
-docker --version
-docker compose version
+docker --version || echo "[ERROR] No se pudo verificar la versión de Docker."
+docker compose version || echo "[ERROR] No se pudo verificar la versión de Docker Compose."
+
+# Ejecuta contenedor de prueba sin abortar si falla
+set +e
 docker run --rm hello-world
+if [ $? -ne 0 ]; then
+  echo "[ERROR] No se pudo ejecutar el contenedor de prueba."
+fi
+set -e
