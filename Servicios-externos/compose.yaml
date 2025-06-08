@@ -3,7 +3,7 @@ services:
     image: juanluisbaptiste/postfix:latest
     container_name: correo
     ports:
-      - "587:587"
+      - "588:588"
     restart: always
     environment:
       SMTP_SERVER: nteum.com        # Replace with your actual SMTP server
