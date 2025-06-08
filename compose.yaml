@@ -50,9 +50,10 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_servidores_routes.sh &&
-               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
+               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && cd /Servicios-internos && docker compose up && cd / &&
+               tail -f /dev/null"
     volumes:
+      - ./Servicios-internos:/Servicios-internos
       - docker-interno:/var/lib/docker
       - ./routes:/routes:ro
       - ./utilities:/utilities
@@ -71,9 +72,10 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y rsync net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_servidores_routes.sh &&
-               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
+               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && cd /servidor-backup && docker compose up && cd / &&
+               tail -f /dev/null"
     volumes:
+      - ./servidor-backup:/servidor-backup
       - docker-interno:/var/lib/docker
       - ./routes:/routes:ro
       - ./utilities:/utilities
@@ -91,11 +93,10 @@ services:
         ipv4_address: 172.172.30.10
     command: >
       bash -c "apt update &&
-               apt install -y nginx net-tools iputils-ping curl iproute2 &&
-               service nginx start &&
-               bash /routes/red_dmz_routes.sh &&
-               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
+               apt install -y net-tools iputils-ping curl iproute2 &&
+               bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && cd /Servicios-externos && docker compose up && cd / && tail -f /dev/null "
     volumes:
+      - ./Servicios-externos:/Servicios-externos
       - docker-externo:/var/lib/docker
       - ./routes:/routes:ro
       - ./utilities:/utilities
@@ -116,9 +117,10 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_usuarios_routes.sh &&
-               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
+               bash /routes/red_usuarios_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
+               tail -f /dev/null"
     volumes:
+      - ./Usuarios-internos:/Usuarios-internos
       - ./routes:/routes:ro
       - ./utilities:/utilities
     restart: always
@@ -136,8 +138,8 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y net-tools iputils-ping curl htop iproute2 &&
-               bash /routes/red_admin_routes.sh &&
-               tail -f /dev/null && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh"
+               bash /routes/red_admin_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
+               tail -f /dev/null"
     volumes:
       - ./routes:/routes:ro
       - ./utilities:/utilities
@@ -169,8 +171,8 @@ services:
       - ./utilities:/utilities
     healthcheck:
       test: ["CMD-SHELL", "chmod +x /utilities/healthcheck.sh && /utilities/healthcheck.sh"]
-      interval: 5s
-      timeout: 30s
+      interval: 10s
+      timeout: 10s
       retries: 10
 
 
