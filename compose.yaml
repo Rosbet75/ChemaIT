@@ -183,8 +183,10 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y rsync net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
+               bash /routes/red_impresion_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
                tail -f /dev/null"
+    volumes:
+      - ./routes:/routes:ro
     networks:
       red_impresion:
         ipv4_address: 172.172.50.3
@@ -198,8 +200,10 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y rsync net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
+               bash /routes/red_impresion_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
                tail -f /dev/null"
+    volumes:
+      - ./routes:/routes:ro
     networks:
       red_impresion:
         ipv4_address: 172.172.50.4
