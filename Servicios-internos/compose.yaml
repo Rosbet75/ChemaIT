@@ -28,7 +28,9 @@ services:
       LDAP_CONFIG_PASSWORD: "eneto"
       LDAP_TLS: "false"
     volumes:
-      - ./local/acceso-unico/data:/var/lib/ldap
+      - ./local/acceso-unico/data:/var/lib/ldap        
+      - ./local/acceso-unico/config:/etc/ldap/slapd.d
+
     restart: always
 
 
@@ -62,6 +64,9 @@ services:
     container_name: impresion-red
     ports:
       - "631:631"
+    environment:
+      - CUPS_USER_ADMIN=eneto
+      - CUPS_USER_PASSWORD=eneto
     volumes:
       - ./local/impresion-red/config:/etc/cups
       - ./local/impresion-red/data:/var/spool/cups
@@ -84,13 +89,16 @@ services:
     image: mysql:latest
     container_name: base-datos
     environment:
+      MYSQL_ROOT_PASSWORD: eneto
       MYSQL_USER: eneto
       MYSQL_PASSWORD: eneto
+      MYSQL_DATABASE: app_db
     ports:
       - "3306:3306"
     volumes:
       - ./local/base-datos/data:/var/lib/mysql
     restart: always
+
 
 
 
@@ -107,3 +115,5 @@ services:
       - ./local/libreoffice/config:/config
       - ./local/libreoffice/documentos:/documents
     restart: unless-stopped
+
+
