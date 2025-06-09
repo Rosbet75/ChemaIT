@@ -1,84 +1,84 @@
-time="2025-06-09T15:01:17.385412343-06:00" level=info msg="Starting up"
-time="2025-06-09T15:01:17.388163170-06:00" level=info msg="containerd not running, starting managed containerd"
-time="2025-06-09T15:01:17.390073659-06:00" level=info msg="started new containerd process" address=/var/run/docker/containerd/containerd.sock module=libcontainerd pid=5288
-time="2025-06-09T15:01:17.420599871-06:00" level=info msg="starting containerd" revision=05044ec0a9a75232cad458027ca83437aae3f4da version=1.7.27
-time="2025-06-09T15:01:17.435204647-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.aufs\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.435741272-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.aufs\"..." error="aufs is not supported (modprobe aufs failed: exec: \"modprobe\": executable file not found in $PATH \"\"): skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.436044886-06:00" level=info msg="loading plugin \"io.containerd.event.v1.exchange\"..." type=io.containerd.event.v1
-time="2025-06-09T15:01:17.436233994-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.opt\"..." type=io.containerd.internal.v1
-time="2025-06-09T15:01:17.438846315-06:00" level=info msg="loading plugin \"io.containerd.warning.v1.deprecations\"..." type=io.containerd.warning.v1
-time="2025-06-09T15:01:17.439153229-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.439883963-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." error="no scratch file generator: skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.440124774-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.441033016-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs (overlay) must be a btrfs filesystem to be used with the btrfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.441232126-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.441481837-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." error="devmapper not configured: skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.441659345-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.native\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.442831000-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.overlayfs\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.444499477-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.zfs\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.444886095-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.zfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:17.445264712-06:00" level=info msg="loading plugin \"io.containerd.content.v1.content\"..." type=io.containerd.content.v1
-time="2025-06-09T15:01:17.445570726-06:00" level=info msg="loading plugin \"io.containerd.metadata.v1.bolt\"..." type=io.containerd.metadata.v1
-time="2025-06-09T15:01:17.446544071-06:00" level=info msg="metadata content store policy set" policy=shared
-time="2025-06-09T15:01:17.458246613-06:00" level=info msg="loading plugin \"io.containerd.gc.v1.scheduler\"..." type=io.containerd.gc.v1
-time="2025-06-09T15:01:17.458640931-06:00" level=info msg="loading plugin \"io.containerd.differ.v1.walking\"..." type=io.containerd.differ.v1
-time="2025-06-09T15:01:17.458860241-06:00" level=info msg="loading plugin \"io.containerd.lease.v1.manager\"..." type=io.containerd.lease.v1
-time="2025-06-09T15:01:17.459105652-06:00" level=info msg="loading plugin \"io.containerd.streaming.v1.manager\"..." type=io.containerd.streaming.v1
-time="2025-06-09T15:01:17.459321462-06:00" level=info msg="loading plugin \"io.containerd.runtime.v1.linux\"..." type=io.containerd.runtime.v1
-time="2025-06-09T15:01:17.461208850-06:00" level=info msg="loading plugin \"io.containerd.monitor.v1.cgroups\"..." type=io.containerd.monitor.v1
-time="2025-06-09T15:01:17.461882881-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.task\"..." type=io.containerd.runtime.v2
-time="2025-06-09T15:01:17.463500756-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.shim\"..." type=io.containerd.runtime.v2
-time="2025-06-09T15:01:17.463702165-06:00" level=info msg="loading plugin \"io.containerd.sandbox.store.v1.local\"..." type=io.containerd.sandbox.store.v1
-time="2025-06-09T15:01:17.463913875-06:00" level=info msg="loading plugin \"io.containerd.sandbox.controller.v1.local\"..." type=io.containerd.sandbox.controller.v1
-time="2025-06-09T15:01:17.464110984-06:00" level=info msg="loading plugin \"io.containerd.service.v1.containers-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:17.464312593-06:00" level=info msg="loading plugin \"io.containerd.service.v1.content-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:17.464501502-06:00" level=info msg="loading plugin \"io.containerd.service.v1.diff-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:17.464678710-06:00" level=info msg="loading plugin \"io.containerd.service.v1.images-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:17.464868119-06:00" level=info msg="loading plugin \"io.containerd.service.v1.introspection-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:17.465089629-06:00" level=info msg="loading plugin \"io.containerd.service.v1.namespaces-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:17.465315340-06:00" level=info msg="loading plugin \"io.containerd.service.v1.snapshots-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:17.465524349-06:00" level=info msg="loading plugin \"io.containerd.service.v1.tasks-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:17.465715658-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.containers\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.465895667-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.content\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.466060074-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.diff\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.466289085-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.events\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.466479094-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.images\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.466663902-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.introspection\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.466847911-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.leases\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.467038219-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.namespaces\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.467215828-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandbox-controllers\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.467396936-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandboxes\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.467573644-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.snapshots\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.467761953-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.streaming\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.467961862-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.tasks\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.468140570-06:00" level=info msg="loading plugin \"io.containerd.transfer.v1.local\"..." type=io.containerd.transfer.v1
-time="2025-06-09T15:01:17.468330179-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.transfer\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.468491987-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.version\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.468642794-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.restart\"..." type=io.containerd.internal.v1
-time="2025-06-09T15:01:17.468891605-06:00" level=info msg="loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." type=io.containerd.tracing.processor.v1
-time="2025-06-09T15:01:17.469065713-06:00" level=info msg="skip loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.tracing.processor.v1
-time="2025-06-09T15:01:17.469341526-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.tracing\"..." type=io.containerd.internal.v1
-time="2025-06-09T15:01:17.469610038-06:00" level=info msg="skip loading plugin \"io.containerd.internal.v1.tracing\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.internal.v1
-time="2025-06-09T15:01:17.469848949-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.healthcheck\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:17.470063659-06:00" level=info msg="loading plugin \"io.containerd.nri.v1.nri\"..." type=io.containerd.nri.v1
-time="2025-06-09T15:01:17.470307871-06:00" level=info msg="NRI interface is disabled by configuration."
-time="2025-06-09T15:01:17.471203812-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd-debug.sock
-time="2025-06-09T15:01:17.471702735-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock.ttrpc
-time="2025-06-09T15:01:17.472136155-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock
-time="2025-06-09T15:01:17.472421668-06:00" level=info msg="containerd successfully booted in 0.054711s"
-time="2025-06-09T15:01:17.478500950-06:00" level=info msg="OTEL tracing is not configured, using no-op tracer provider"
-time="2025-06-09T15:01:17.497585333-06:00" level=info msg="Creating a containerd client" address=/var/run/docker/containerd/containerd.sock timeout=1m0s
-time="2025-06-09T15:01:17.519823461-06:00" level=error msg="failed to mount overlay: invalid argument" storage-driver=overlay2
-time="2025-06-09T15:01:17.520139276-06:00" level=error msg="exec: \"fuse-overlayfs\": executable file not found in $PATH" storage-driver=fuse-overlayfs
-time="2025-06-09T15:01:17.530139939-06:00" level=info msg="Loading containers: start."
-time="2025-06-09T15:01:17.819135308-06:00" level=info msg="Loading containers: done."
-time="2025-06-09T15:01:17.829375682-06:00" level=info msg="Docker daemon" commit=45873be containerd-snapshotter=false storage-driver=vfs version=28.2.2
-time="2025-06-09T15:01:17.830052713-06:00" level=info msg="Initializing buildkit"
-time="2025-06-09T15:01:17.841229930-06:00" level=warning msg="CDI setup error /etc/cdi: failed to monitor for changes: no such file or directory"
-time="2025-06-09T15:01:17.841487342-06:00" level=warning msg="CDI setup error /var/run/cdi: failed to monitor for changes: no such file or directory"
-time="2025-06-09T15:01:17.887195857-06:00" level=info msg="Completed buildkit initialization"
-time="2025-06-09T15:01:17.896310178-06:00" level=info msg="Daemon has completed initialization"
-time="2025-06-09T15:01:17.902627271-06:00" level=info msg="API listen on /var/run/docker.sock"
-time="2025-06-09T15:01:26.051995774-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:26.603668218-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:26.604115538-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/7ea4ebd8c8fb9186f60b539f245d469259ad4f93a2164124a3214fd7130b86c5/memory.events\": no such file or directory"
+time="2025-06-09T15:59:30.958062553-06:00" level=info msg="Starting up"
+time="2025-06-09T15:59:30.960355108-06:00" level=info msg="containerd not running, starting managed containerd"
+time="2025-06-09T15:59:30.962436249-06:00" level=info msg="started new containerd process" address=/var/run/docker/containerd/containerd.sock module=libcontainerd pid=5288
+time="2025-06-09T15:59:31.000145894-06:00" level=info msg="starting containerd" revision=05044ec0a9a75232cad458027ca83437aae3f4da version=1.7.27
+time="2025-06-09T15:59:31.025503505-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.aufs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.026054542-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.aufs\"..." error="aufs is not supported (modprobe aufs failed: exec: \"modprobe\": executable file not found in $PATH \"\"): skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.026267057-06:00" level=info msg="loading plugin \"io.containerd.event.v1.exchange\"..." type=io.containerd.event.v1
+time="2025-06-09T15:59:31.026490772-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.opt\"..." type=io.containerd.internal.v1
+time="2025-06-09T15:59:31.029199955-06:00" level=info msg="loading plugin \"io.containerd.warning.v1.deprecations\"..." type=io.containerd.warning.v1
+time="2025-06-09T15:59:31.029498775-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.030234324-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." error="no scratch file generator: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.030404136-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.031152286-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs (overlay) must be a btrfs filesystem to be used with the btrfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.031322998-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.031507210-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." error="devmapper not configured: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.031673022-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.native\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.032814299-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.overlayfs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.034191392-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.zfs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.034530514-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.zfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:31.034711827-06:00" level=info msg="loading plugin \"io.containerd.content.v1.content\"..." type=io.containerd.content.v1
+time="2025-06-09T15:59:31.034910340-06:00" level=info msg="loading plugin \"io.containerd.metadata.v1.bolt\"..." type=io.containerd.metadata.v1
+time="2025-06-09T15:59:31.035526682-06:00" level=info msg="metadata content store policy set" policy=shared
+time="2025-06-09T15:59:31.042063723-06:00" level=info msg="loading plugin \"io.containerd.gc.v1.scheduler\"..." type=io.containerd.gc.v1
+time="2025-06-09T15:59:31.042347942-06:00" level=info msg="loading plugin \"io.containerd.differ.v1.walking\"..." type=io.containerd.differ.v1
+time="2025-06-09T15:59:31.042550456-06:00" level=info msg="loading plugin \"io.containerd.lease.v1.manager\"..." type=io.containerd.lease.v1
+time="2025-06-09T15:59:31.042802173-06:00" level=info msg="loading plugin \"io.containerd.streaming.v1.manager\"..." type=io.containerd.streaming.v1
+time="2025-06-09T15:59:31.043018287-06:00" level=info msg="loading plugin \"io.containerd.runtime.v1.linux\"..." type=io.containerd.runtime.v1
+time="2025-06-09T15:59:31.044716202-06:00" level=info msg="loading plugin \"io.containerd.monitor.v1.cgroups\"..." type=io.containerd.monitor.v1
+time="2025-06-09T15:59:31.045535857-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.task\"..." type=io.containerd.runtime.v2
+time="2025-06-09T15:59:31.046743739-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.shim\"..." type=io.containerd.runtime.v2
+time="2025-06-09T15:59:31.046989055-06:00" level=info msg="loading plugin \"io.containerd.sandbox.store.v1.local\"..." type=io.containerd.sandbox.store.v1
+time="2025-06-09T15:59:31.047169067-06:00" level=info msg="loading plugin \"io.containerd.sandbox.controller.v1.local\"..." type=io.containerd.sandbox.controller.v1
+time="2025-06-09T15:59:31.047334479-06:00" level=info msg="loading plugin \"io.containerd.service.v1.containers-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:31.047497290-06:00" level=info msg="loading plugin \"io.containerd.service.v1.content-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:31.047653400-06:00" level=info msg="loading plugin \"io.containerd.service.v1.diff-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:31.047805110-06:00" level=info msg="loading plugin \"io.containerd.service.v1.images-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:31.047978522-06:00" level=info msg="loading plugin \"io.containerd.service.v1.introspection-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:31.048152934-06:00" level=info msg="loading plugin \"io.containerd.service.v1.namespaces-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:31.048369748-06:00" level=info msg="loading plugin \"io.containerd.service.v1.snapshots-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:31.048560461-06:00" level=info msg="loading plugin \"io.containerd.service.v1.tasks-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:31.048785777-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.containers\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.048982590-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.content\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.049153101-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.diff\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.049302511-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.events\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.049524226-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.images\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.049793045-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.introspection\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.050014960-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.leases\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.050234874-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.namespaces\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.050437988-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandbox-controllers\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.050633301-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandboxes\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.050790912-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.snapshots\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.051003026-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.streaming\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.051201440-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.tasks\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.051459257-06:00" level=info msg="loading plugin \"io.containerd.transfer.v1.local\"..." type=io.containerd.transfer.v1
+time="2025-06-09T15:59:31.051678772-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.transfer\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.051896086-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.version\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.052110501-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.restart\"..." type=io.containerd.internal.v1
+time="2025-06-09T15:59:31.052426422-06:00" level=info msg="loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." type=io.containerd.tracing.processor.v1
+time="2025-06-09T15:59:31.052699941-06:00" level=info msg="skip loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.tracing.processor.v1
+time="2025-06-09T15:59:31.052906155-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.tracing\"..." type=io.containerd.internal.v1
+time="2025-06-09T15:59:31.053191074-06:00" level=info msg="skip loading plugin \"io.containerd.internal.v1.tracing\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.internal.v1
+time="2025-06-09T15:59:31.053674507-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.healthcheck\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:31.053896021-06:00" level=info msg="loading plugin \"io.containerd.nri.v1.nri\"..." type=io.containerd.nri.v1
+time="2025-06-09T15:59:31.054085234-06:00" level=info msg="NRI interface is disabled by configuration."
+time="2025-06-09T15:59:31.054825484-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd-debug.sock
+time="2025-06-09T15:59:31.055560534-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock.ttrpc
+time="2025-06-09T15:59:31.055934059-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock
+time="2025-06-09T15:59:31.056256081-06:00" level=info msg="containerd successfully booted in 0.060205s"
+time="2025-06-09T15:59:31.061502135-06:00" level=info msg="OTEL tracing is not configured, using no-op tracer provider"
+time="2025-06-09T15:59:31.083999353-06:00" level=info msg="Creating a containerd client" address=/var/run/docker/containerd/containerd.sock timeout=1m0s
+time="2025-06-09T15:59:31.107324227-06:00" level=error msg="failed to mount overlay: invalid argument" storage-driver=overlay2
+time="2025-06-09T15:59:31.108782926-06:00" level=error msg="exec: \"fuse-overlayfs\": executable file not found in $PATH" storage-driver=fuse-overlayfs
+time="2025-06-09T15:59:31.115765997-06:00" level=info msg="Loading containers: start."
+time="2025-06-09T15:59:32.159251324-06:00" level=info msg="Loading containers: done."
+time="2025-06-09T15:59:32.168994282-06:00" level=info msg="Docker daemon" commit=45873be containerd-snapshotter=false storage-driver=vfs version=28.2.2
+time="2025-06-09T15:59:32.169822738-06:00" level=info msg="Initializing buildkit"
+time="2025-06-09T15:59:32.175642530-06:00" level=warning msg="CDI setup error /etc/cdi: failed to monitor for changes: no such file or directory"
+time="2025-06-09T15:59:32.175823743-06:00" level=warning msg="CDI setup error /var/run/cdi: failed to monitor for changes: no such file or directory"
+time="2025-06-09T15:59:32.220786977-06:00" level=info msg="Completed buildkit initialization"
+time="2025-06-09T15:59:32.226207943-06:00" level=info msg="Daemon has completed initialization"
+time="2025-06-09T15:59:32.226482762-06:00" level=info msg="API listen on /var/run/docker.sock"
+time="2025-06-09T15:59:38.354424073-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-09T15:59:38.454333648-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-09T15:59:38.454576862-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/62a89375b3fe540ffc023bdb496a7e69c6312aa3bace74ed91365c4c9c09b421/memory.events\": no such file or directory"

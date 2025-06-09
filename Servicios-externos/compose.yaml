@@ -1,20 +1,6 @@
 
 services:
 
-  # servidor-impresion-p910nd:
-  #   image: justinhimself/p910nd:latest
-  #   container_name: servidor-impresion-p910nd
-  #   ports:
-  #     - "9100:9100"  
-  #   volumes:
-  #     - ./local/servidor-impresion-p910nd/data:/var/spool/p910nd
-  #   restart: always
-
-
-
-
-
-
   servidor-web-publico:
     image: nginx:latest
     container_name: servidor-web-publico
@@ -72,34 +58,71 @@ services:
 ######################################################################
 
   servidor-ftp:
-    image: delfer/alpine-ftp-server:latest
+    image: stilliard/pure-ftpd
     container_name: servidor-ftp
     ports:
       - "21:21"
       - "30000-30009:30000-30009"
     environment:
-      FTP_USER: eneto
-      FTP_PASS: eneto
-      PASV_ADDRESS: 0.0.0.0
-      PASV_MIN_PORT: 30000
-      PASV_MAX_PORT: 30009
+      PUBLICHOST: "localhost"        # Cambia por IP si usas otra máquina
+      FTP_USER_NAME: "eneto"         # Usuario FTP
+      FTP_USER_PASS: "eneto"         # Contraseña FTP
+      FTP_USER_HOME: "/home/ftpuser" # Home dentro del contenedor
+      ADDED_FLAGS: "-j -R"           # Opciones: -j (no crear usuarios unix), -R (modo pasivo)
     volumes:
       - /setup/local/servidor-ftp/data:/home/ftpuser
     restart: always
 
 ######################################################################
 
-  foro-edxops:
-    image: edxops/forum:latest
-    container_name: foro-edxops
-    ports:
-      - "8081:80"
-    environment:
-      FORUM_ADMIN_USER: admin
-      FORUM_ADMIN_PASSWORD: eneto123
+  mongo:
+    image: mongo:6.0
+    container_name: foro-mongo
     volumes:
-      - /setup/local/foro-edxops/data:/var/lib/forum
+      - /setup/local/foro/mongo:/data/db
     restart: always
+
+  redis:
+    image: redis:7
+    container_name: foro-redis
+    volumes:
+      - /setup/local/foro/redis:/data
+    restart: always
+
+  foro:
+    image: nodebb/docker:latest
+    container_name: foro
+    ports:
+      - "8081:4567"
+    environment:
+      - NODEBB_ADMIN_USERNAME=admin
+      - NODEBB_ADMIN_PASSWORD=eneto123
+      - NODEBB_ADMIN_EMAIL=admin@nteum.com
+      - NODE_ENV=production
+    depends_on:
+      - mongo
+      - redis
+    volumes:
+      - /setup/local/foro/data:/data
+    restart: always
+
+
+  impresion-cliente:
+    image: olbat/cupsd:latest
+    container_name: impresion-cliente
+    ports:
+      - "1631:631"  # cambia el puerto para evitar conflicto si corre en el mismo host
+    command: >
+      bash -c "sleep infinity"
+    environment:
+      CUPS_USER_ADMIN: eneto
+      CUPS_USER_PASSWORD: eneto
+    volumes:
+      - /setup/local/impresion-cliente/config:/etc/cups
+      - /setup/local/impresion-cliente/data:/var/spool/cups
+    restart: always
+
+
 
 ######################################################################
 
