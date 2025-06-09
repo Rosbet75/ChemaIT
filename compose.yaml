@@ -173,7 +173,7 @@ services:
       test: ["CMD-SHELL", "chmod +x /utilities/healthcheck.sh && /utilities/healthcheck.sh"]
       interval: 10s
       timeout: 10s
-      retries: 10
+      retries: 30
   impresora_1:
     depends_on:
       firewall:

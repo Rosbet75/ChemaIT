@@ -1,147 +1,134 @@
-time="2025-06-09T15:01:34.852321096-06:00" level=info msg="Starting up"
-time="2025-06-09T15:01:34.854889101-06:00" level=info msg="containerd not running, starting managed containerd"
-time="2025-06-09T15:01:34.856779778-06:00" level=info msg="started new containerd process" address=/var/run/docker/containerd/containerd.sock module=libcontainerd pid=5318
-time="2025-06-09T15:01:34.885354544-06:00" level=info msg="starting containerd" revision=05044ec0a9a75232cad458027ca83437aae3f4da version=1.7.27
-time="2025-06-09T15:01:34.899804134-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.aufs\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.900320355-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.aufs\"..." error="aufs is not supported (modprobe aufs failed: exec: \"modprobe\": executable file not found in $PATH \"\"): skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.900512063-06:00" level=info msg="loading plugin \"io.containerd.event.v1.exchange\"..." type=io.containerd.event.v1
-time="2025-06-09T15:01:34.900690470-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.opt\"..." type=io.containerd.internal.v1
-time="2025-06-09T15:01:34.902921061-06:00" level=info msg="loading plugin \"io.containerd.warning.v1.deprecations\"..." type=io.containerd.warning.v1
-time="2025-06-09T15:01:34.903226774-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.903438982-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." error="no scratch file generator: skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.903621590-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.904455424-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs (ext4) must be a btrfs filesystem to be used with the btrfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.904758336-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.904958144-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." error="devmapper not configured: skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.905156952-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.native\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.905352460-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.overlayfs\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.905659773-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.zfs\"..." type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.905969886-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.zfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
-time="2025-06-09T15:01:34.906164894-06:00" level=info msg="loading plugin \"io.containerd.content.v1.content\"..." type=io.containerd.content.v1
-time="2025-06-09T15:01:34.906349001-06:00" level=info msg="loading plugin \"io.containerd.metadata.v1.bolt\"..." type=io.containerd.metadata.v1
-time="2025-06-09T15:01:34.906525408-06:00" level=info msg="metadata content store policy set" policy=shared
-time="2025-06-09T15:01:34.906916224-06:00" level=info msg="loading plugin \"io.containerd.gc.v1.scheduler\"..." type=io.containerd.gc.v1
-time="2025-06-09T15:01:34.907154134-06:00" level=info msg="loading plugin \"io.containerd.differ.v1.walking\"..." type=io.containerd.differ.v1
-time="2025-06-09T15:01:34.907334241-06:00" level=info msg="loading plugin \"io.containerd.lease.v1.manager\"..." type=io.containerd.lease.v1
-time="2025-06-09T15:01:34.907504348-06:00" level=info msg="loading plugin \"io.containerd.streaming.v1.manager\"..." type=io.containerd.streaming.v1
-time="2025-06-09T15:01:34.907700856-06:00" level=info msg="loading plugin \"io.containerd.runtime.v1.linux\"..." type=io.containerd.runtime.v1
-time="2025-06-09T15:01:34.908469988-06:00" level=info msg="loading plugin \"io.containerd.monitor.v1.cgroups\"..." type=io.containerd.monitor.v1
-time="2025-06-09T15:01:34.908849203-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.task\"..." type=io.containerd.runtime.v2
-time="2025-06-09T15:01:34.909538631-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.shim\"..." type=io.containerd.runtime.v2
-time="2025-06-09T15:01:34.909703838-06:00" level=info msg="loading plugin \"io.containerd.sandbox.store.v1.local\"..." type=io.containerd.sandbox.store.v1
-time="2025-06-09T15:01:34.909854844-06:00" level=info msg="loading plugin \"io.containerd.sandbox.controller.v1.local\"..." type=io.containerd.sandbox.controller.v1
-time="2025-06-09T15:01:34.910016451-06:00" level=info msg="loading plugin \"io.containerd.service.v1.containers-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:34.910157457-06:00" level=info msg="loading plugin \"io.containerd.service.v1.content-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:34.910308163-06:00" level=info msg="loading plugin \"io.containerd.service.v1.diff-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:34.910702379-06:00" level=info msg="loading plugin \"io.containerd.service.v1.images-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:34.910872086-06:00" level=info msg="loading plugin \"io.containerd.service.v1.introspection-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:34.911105395-06:00" level=info msg="loading plugin \"io.containerd.service.v1.namespaces-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:34.911259002-06:00" level=info msg="loading plugin \"io.containerd.service.v1.snapshots-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:34.911404107-06:00" level=info msg="loading plugin \"io.containerd.service.v1.tasks-service\"..." type=io.containerd.service.v1
-time="2025-06-09T15:01:34.911573814-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.containers\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.911724821-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.content\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.911871026-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.diff\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.912013532-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.events\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.912175739-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.images\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.912333945-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.introspection\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.912508753-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.leases\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.912706161-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.namespaces\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.912886768-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandbox-controllers\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.913075776-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandboxes\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.913234182-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.snapshots\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.913381088-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.streaming\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.913538195-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.tasks\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.913724802-06:00" level=info msg="loading plugin \"io.containerd.transfer.v1.local\"..." type=io.containerd.transfer.v1
-time="2025-06-09T15:01:34.913885909-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.transfer\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.914056416-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.version\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.914194521-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.restart\"..." type=io.containerd.internal.v1
-time="2025-06-09T15:01:34.914395830-06:00" level=info msg="loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." type=io.containerd.tracing.processor.v1
-time="2025-06-09T15:01:34.914579437-06:00" level=info msg="skip loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.tracing.processor.v1
-time="2025-06-09T15:01:34.914731343-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.tracing\"..." type=io.containerd.internal.v1
-time="2025-06-09T15:01:34.914870849-06:00" level=info msg="skip loading plugin \"io.containerd.internal.v1.tracing\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.internal.v1
-time="2025-06-09T15:01:34.915004154-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.healthcheck\"..." type=io.containerd.grpc.v1
-time="2025-06-09T15:01:34.915195462-06:00" level=info msg="loading plugin \"io.containerd.nri.v1.nri\"..." type=io.containerd.nri.v1
-time="2025-06-09T15:01:34.915332768-06:00" level=info msg="NRI interface is disabled by configuration."
-time="2025-06-09T15:01:34.916107299-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd-debug.sock
-time="2025-06-09T15:01:34.916372410-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock.ttrpc
-time="2025-06-09T15:01:34.916623320-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock
-time="2025-06-09T15:01:34.916791327-06:00" level=info msg="containerd successfully booted in 0.033406s"
-time="2025-06-09T15:01:34.920870294-06:00" level=info msg="OTEL tracing is not configured, using no-op tracer provider"
-time="2025-06-09T15:01:34.936325324-06:00" level=info msg="Creating a containerd client" address=/var/run/docker/containerd/containerd.sock timeout=1m0s
-time="2025-06-09T15:01:35.109345086-06:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
-time="2025-06-09T15:01:35.116985397-06:00" level=info msg="Loading containers: start."
-time="2025-06-09T15:01:35.707110703-06:00" level=info msg="Removing stale sandbox" cid=8042c10db7f9 isRestore=false sid=22df32a6a1ae
-time="2025-06-09T15:01:35.807580903-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
-time="2025-06-09T15:01:35.807806512-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 50f06a615f31de303d9c4036bc53d4bd5322e64abc2eead1f2cb30cc0658859b], retrying...."
-time="2025-06-09T15:01:35.848016253-06:00" level=info msg="Removing stale sandbox" cid=143082f4058d isRestore=false sid=2911fb3b1d78
-time="2025-06-09T15:01:36.231182691-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
-time="2025-06-09T15:01:36.231396599-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 c2e07c6f6cf6fe05111d238f072f5a1057556e115099cb1be6ec2200d7c45b39], retrying...."
-time="2025-06-09T15:01:36.266362326-06:00" level=info msg="Removing stale sandbox" cid=23167191df2d isRestore=false sid=554dfe01716f
-time="2025-06-09T15:01:36.342586737-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
-time="2025-06-09T15:01:36.342831147-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 4b9ebf2535937dcf2ce5c1690c7ed49b993d86ed2ddab537224be37889025838], retrying...."
-time="2025-06-09T15:01:36.370990196-06:00" level=info msg="Removing stale sandbox" cid=2e0b1a7216fb isRestore=false sid=962e770ca738
-time="2025-06-09T15:01:36.533608633-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
-time="2025-06-09T15:01:36.533931446-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 279fb3faf5292facfa5af1903aacd11ffc7a56c9de378018e56b434ffa701693], retrying...."
-time="2025-06-09T15:01:36.591887811-06:00" level=info msg="Removing stale sandbox" cid=b893ab2535fc isRestore=false sid=e7d90f81729f
-time="2025-06-09T15:01:36.703013146-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
-time="2025-06-09T15:01:36.703250156-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 f83fb9eb393b45805811155ad74a7cc619831b5e907be1f828137d663bfb3553], retrying...."
-time="2025-06-09T15:01:36.747116446-06:00" level=info msg="Removing stale sandbox" cid=cdbb55f376ad isRestore=false sid=f95ccc513a77
-time="2025-06-09T15:01:36.842060921-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
-time="2025-06-09T15:01:36.842352633-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 06a6decb56b673d3228a436b097da92cd8090e53cf66585d89ffe6fe604e3393], retrying...."
-time="2025-06-09T15:01:37.223883604-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint_count 66bbcaea3ce7a953d6f5d5ee1ab70c21ecfe5da6848f939d9c8b2fbdf8a5d569], retrying...."
-time="2025-06-09T15:01:37.282333889-06:00" level=warning msg="error locating sandbox id e7d90f81729f6f32923019637f3d04b4656be46e03642b250c71803c67394b47: sandbox e7d90f81729f6f32923019637f3d04b4656be46e03642b250c71803c67394b47 not found"
-time="2025-06-09T15:01:37.282635701-06:00" level=warning msg="error locating sandbox id 2911fb3b1d789058743f0c2d405ad9f427cc6d85545225d2ecccf239088b2729: sandbox 2911fb3b1d789058743f0c2d405ad9f427cc6d85545225d2ecccf239088b2729 not found"
-time="2025-06-09T15:01:37.282902612-06:00" level=warning msg="error locating sandbox id 22df32a6a1ae5dd23184f87badcb4ad9b59f82deb4fbf98fa18f27303e750513: sandbox 22df32a6a1ae5dd23184f87badcb4ad9b59f82deb4fbf98fa18f27303e750513 not found"
-time="2025-06-09T15:01:37.283143222-06:00" level=warning msg="error locating sandbox id 962e770ca7387c22e633413db9dbd3bafcc76728b0f54ef40d35c9dd6341037c: sandbox 962e770ca7387c22e633413db9dbd3bafcc76728b0f54ef40d35c9dd6341037c not found"
-time="2025-06-09T15:01:37.283340130-06:00" level=warning msg="error locating sandbox id f95ccc513a774d954fc9aee55b4e569a0bef0cc41c9208b081ba787fd0fb94e6: sandbox f95ccc513a774d954fc9aee55b4e569a0bef0cc41c9208b081ba787fd0fb94e6 not found"
-time="2025-06-09T15:01:37.283556739-06:00" level=warning msg="error locating sandbox id 554dfe01716fa111a833e0f7b309ace3d690264d054d6ae119d4a3359cc71ce7: sandbox 554dfe01716fa111a833e0f7b309ace3d690264d054d6ae119d4a3359cc71ce7 not found"
-time="2025-06-09T15:01:37.496629235-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:37.508453917-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:37.520930326-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:37.575301345-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:37.617091051-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:37.617815980-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/23167191df2d23f415595daaead174a03cb3806b4277a2d3e785105abe290bf8/memory.events\": no such file or directory"
-time="2025-06-09T15:01:37.706450298-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:37.724237824-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:37.726846630-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:37.727141542-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/cdbb55f376adcb8feac1ad6624f7713e3b79e550447f415ae54f80ca724f60ee/memory.events\": no such file or directory"
-time="2025-06-09T15:01:37.762951103-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:37.763238015-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/b893ab2535fc30788cadaef4e47c4d88a46b990fbbd65905e433a073d5aa915e/memory.events\": no such file or directory"
-time="2025-06-09T15:01:37.782225290-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:37.812076908-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:38.162355303-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:38.162789121-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/143082f4058d0dbcde2e54695c7d0b56c775722599ed1904f666adab076f8bac/memory.events\": no such file or directory"
-time="2025-06-09T15:01:38.190709461-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:38.191062075-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/2e0b1a7216fb1c45a1783fc8164e14cb5bda03cb8426d81fa529caffd97ea3c6/memory.events\": no such file or directory"
-time="2025-06-09T15:01:38.232968285-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:38.233337900-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/686d0efa11428ae5c549062a418d530d7b001322ebf815d1c5c489155b8acdde/memory.events\": no such file or directory"
-time="2025-06-09T15:01:38.262027371-06:00" level=info msg="shim disconnected" id=686d0efa11428ae5c549062a418d530d7b001322ebf815d1c5c489155b8acdde namespace=moby
-time="2025-06-09T15:01:38.262170177-06:00" level=info msg="ignoring event" container=686d0efa11428ae5c549062a418d530d7b001322ebf815d1c5c489155b8acdde module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
-time="2025-06-09T15:01:38.262418287-06:00" level=warning msg="cleaning up after shim disconnected" id=686d0efa11428ae5c549062a418d530d7b001322ebf815d1c5c489155b8acdde namespace=moby
-time="2025-06-09T15:01:38.262829004-06:00" level=info msg="cleaning up dead shim" namespace=moby
-time="2025-06-09T15:01:38.275426318-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:38.275772532-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/8042c10db7f9bd8cb5111c4ce945b660d8a1b5466626f7dfadf2c91e28b8ca72/memory.events\": no such file or directory"
-time="2025-06-09T15:01:38.314841530-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:38.315177344-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/5c4fcc591a041a857154565eadb7884e361980c3728d022613789acedd4289ab/memory.events\": no such file or directory"
-time="2025-06-09T15:01:38.321135793-06:00" level=info msg="Loading containers: done."
-time="2025-06-09T15:01:38.398915642-06:00" level=info msg="Docker daemon" commit=45873be containerd-snapshotter=false storage-driver=overlay2 version=28.2.2
-time="2025-06-09T15:01:38.426645401-06:00" level=info msg="shim disconnected" id=2e0b1a7216fb1c45a1783fc8164e14cb5bda03cb8426d81fa529caffd97ea3c6 namespace=moby
-time="2025-06-09T15:01:38.426675402-06:00" level=info msg="ignoring event" container=2e0b1a7216fb1c45a1783fc8164e14cb5bda03cb8426d81fa529caffd97ea3c6 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
-time="2025-06-09T15:01:38.426927813-06:00" level=warning msg="cleaning up after shim disconnected" id=2e0b1a7216fb1c45a1783fc8164e14cb5bda03cb8426d81fa529caffd97ea3c6 namespace=moby
-time="2025-06-09T15:01:38.427415333-06:00" level=info msg="cleaning up dead shim" namespace=moby
-time="2025-06-09T15:01:38.947782772-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:39.080339810-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:39.080717226-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/686d0efa11428ae5c549062a418d530d7b001322ebf815d1c5c489155b8acdde/memory.events\": no such file or directory"
-time="2025-06-09T15:01:39.086996888-06:00" level=info msg="Initializing buildkit"
-time="2025-06-09T15:01:39.087640915-06:00" level=warning msg="CDI setup error /etc/cdi: failed to monitor for changes: no such file or directory"
-time="2025-06-09T15:01:39.087859024-06:00" level=warning msg="CDI setup error /var/run/cdi: failed to monitor for changes: no such file or directory"
-time="2025-06-09T15:01:39.107926062-06:00" level=info msg="ignoring event" container=686d0efa11428ae5c549062a418d530d7b001322ebf815d1c5c489155b8acdde module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
-time="2025-06-09T15:01:39.107941863-06:00" level=info msg="shim disconnected" id=686d0efa11428ae5c549062a418d530d7b001322ebf815d1c5c489155b8acdde namespace=moby
-time="2025-06-09T15:01:39.109064810-06:00" level=warning msg="cleaning up after shim disconnected" id=686d0efa11428ae5c549062a418d530d7b001322ebf815d1c5c489155b8acdde namespace=moby
-time="2025-06-09T15:01:39.109306220-06:00" level=info msg="cleaning up dead shim" namespace=moby
-time="2025-06-09T15:01:39.117052343-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
-time="2025-06-09T15:01:39.132281280-06:00" level=info msg="Completed buildkit initialization"
-time="2025-06-09T15:01:39.139939100-06:00" level=info msg="Daemon has completed initialization"
-time="2025-06-09T15:01:39.140244112-06:00" level=info msg="API listen on /var/run/docker.sock"
-time="2025-06-09T15:01:39.294108440-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
-time="2025-06-09T15:01:39.294523358-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/2e0b1a7216fb1c45a1783fc8164e14cb5bda03cb8426d81fa529caffd97ea3c6/memory.events\": no such file or directory"
+time="2025-06-09T15:59:03.437260481-06:00" level=info msg="Starting up"
+time="2025-06-09T15:59:03.439387427-06:00" level=info msg="containerd not running, starting managed containerd"
+time="2025-06-09T15:59:03.441960904-06:00" level=info msg="started new containerd process" address=/var/run/docker/containerd/containerd.sock module=libcontainerd pid=5319
+time="2025-06-09T15:59:03.484690037-06:00" level=info msg="starting containerd" revision=05044ec0a9a75232cad458027ca83437aae3f4da version=1.7.27
+time="2025-06-09T15:59:03.506058603-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.aufs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.506585539-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.aufs\"..." error="aufs is not supported (modprobe aufs failed: exec: \"modprobe\": executable file not found in $PATH \"\"): skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.506855458-06:00" level=info msg="loading plugin \"io.containerd.event.v1.exchange\"..." type=io.containerd.event.v1
+time="2025-06-09T15:59:03.507062872-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.opt\"..." type=io.containerd.internal.v1
+time="2025-06-09T15:59:03.510078479-06:00" level=info msg="loading plugin \"io.containerd.warning.v1.deprecations\"..." type=io.containerd.warning.v1
+time="2025-06-09T15:59:03.510308895-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.510569413-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.blockfile\"..." error="no scratch file generator: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.510756126-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.511150753-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs (ext4) must be a btrfs filesystem to be used with the btrfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.511329065-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.511522078-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." error="devmapper not configured: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.511796497-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.native\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.512037314-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.overlayfs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.512435541-06:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.zfs\"..." type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.512783765-06:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.zfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
+time="2025-06-09T15:59:03.513032682-06:00" level=info msg="loading plugin \"io.containerd.content.v1.content\"..." type=io.containerd.content.v1
+time="2025-06-09T15:59:03.513233696-06:00" level=info msg="loading plugin \"io.containerd.metadata.v1.bolt\"..." type=io.containerd.metadata.v1
+time="2025-06-09T15:59:03.513467112-06:00" level=info msg="metadata content store policy set" policy=shared
+time="2025-06-09T15:59:03.514060452-06:00" level=info msg="loading plugin \"io.containerd.gc.v1.scheduler\"..." type=io.containerd.gc.v1
+time="2025-06-09T15:59:03.514412377-06:00" level=info msg="loading plugin \"io.containerd.differ.v1.walking\"..." type=io.containerd.differ.v1
+time="2025-06-09T15:59:03.514575388-06:00" level=info msg="loading plugin \"io.containerd.lease.v1.manager\"..." type=io.containerd.lease.v1
+time="2025-06-09T15:59:03.514810304-06:00" level=info msg="loading plugin \"io.containerd.streaming.v1.manager\"..." type=io.containerd.streaming.v1
+time="2025-06-09T15:59:03.514979416-06:00" level=info msg="loading plugin \"io.containerd.runtime.v1.linux\"..." type=io.containerd.runtime.v1
+time="2025-06-09T15:59:03.516209600-06:00" level=info msg="loading plugin \"io.containerd.monitor.v1.cgroups\"..." type=io.containerd.monitor.v1
+time="2025-06-09T15:59:03.516692833-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.task\"..." type=io.containerd.runtime.v2
+time="2025-06-09T15:59:03.517447785-06:00" level=info msg="loading plugin \"io.containerd.runtime.v2.shim\"..." type=io.containerd.runtime.v2
+time="2025-06-09T15:59:03.517642998-06:00" level=info msg="loading plugin \"io.containerd.sandbox.store.v1.local\"..." type=io.containerd.sandbox.store.v1
+time="2025-06-09T15:59:03.517857813-06:00" level=info msg="loading plugin \"io.containerd.sandbox.controller.v1.local\"..." type=io.containerd.sandbox.controller.v1
+time="2025-06-09T15:59:03.518039526-06:00" level=info msg="loading plugin \"io.containerd.service.v1.containers-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:03.518214838-06:00" level=info msg="loading plugin \"io.containerd.service.v1.content-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:03.518379449-06:00" level=info msg="loading plugin \"io.containerd.service.v1.diff-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:03.518542760-06:00" level=info msg="loading plugin \"io.containerd.service.v1.images-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:03.518726273-06:00" level=info msg="loading plugin \"io.containerd.service.v1.introspection-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:03.518883083-06:00" level=info msg="loading plugin \"io.containerd.service.v1.namespaces-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:03.519090598-06:00" level=info msg="loading plugin \"io.containerd.service.v1.snapshots-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:03.519262209-06:00" level=info msg="loading plugin \"io.containerd.service.v1.tasks-service\"..." type=io.containerd.service.v1
+time="2025-06-09T15:59:03.519436621-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.containers\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.519602133-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.content\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.519776845-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.diff\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.519930755-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.events\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.520080066-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.images\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.520311081-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.introspection\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.520492694-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.leases\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.520709409-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.namespaces\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.520880021-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandbox-controllers\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.521043832-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandboxes\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.521215244-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.snapshots\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.521391956-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.streaming\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.521549266-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.tasks\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.521842587-06:00" level=info msg="loading plugin \"io.containerd.transfer.v1.local\"..." type=io.containerd.transfer.v1
+time="2025-06-09T15:59:03.522098004-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.transfer\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.522673944-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.version\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.522914160-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.restart\"..." type=io.containerd.internal.v1
+time="2025-06-09T15:59:03.523247683-06:00" level=info msg="loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." type=io.containerd.tracing.processor.v1
+time="2025-06-09T15:59:03.523483599-06:00" level=info msg="skip loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.tracing.processor.v1
+time="2025-06-09T15:59:03.523749317-06:00" level=info msg="loading plugin \"io.containerd.internal.v1.tracing\"..." type=io.containerd.internal.v1
+time="2025-06-09T15:59:03.523937830-06:00" level=info msg="skip loading plugin \"io.containerd.internal.v1.tracing\"..." error="skip plugin: tracing endpoint not configured" type=io.containerd.internal.v1
+time="2025-06-09T15:59:03.524119143-06:00" level=info msg="loading plugin \"io.containerd.grpc.v1.healthcheck\"..." type=io.containerd.grpc.v1
+time="2025-06-09T15:59:03.524330657-06:00" level=info msg="loading plugin \"io.containerd.nri.v1.nri\"..." type=io.containerd.nri.v1
+time="2025-06-09T15:59:03.524493369-06:00" level=info msg="NRI interface is disabled by configuration."
+time="2025-06-09T15:59:03.525085509-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd-debug.sock
+time="2025-06-09T15:59:03.525457535-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock.ttrpc
+time="2025-06-09T15:59:03.525815259-06:00" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock
+time="2025-06-09T15:59:03.526024974-06:00" level=info msg="containerd successfully booted in 0.044308s"
+time="2025-06-09T15:59:03.531550553-06:00" level=info msg="OTEL tracing is not configured, using no-op tracer provider"
+time="2025-06-09T15:59:03.553957791-06:00" level=info msg="Creating a containerd client" address=/var/run/docker/containerd/containerd.sock timeout=1m0s
+time="2025-06-09T15:59:04.208358306-06:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
+time="2025-06-09T15:59:04.224430410-06:00" level=info msg="Loading containers: start."
+time="2025-06-09T15:59:04.959823484-06:00" level=info msg="Removing stale sandbox" cid=23167191df2d isRestore=false sid=a09c0b1e392c
+time="2025-06-09T15:59:05.081632945-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
+time="2025-06-09T15:59:05.081912264-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 f1b9522e4a17df3bfb9b1dea64a3499c3a05f1d3c7f2c60c35bde225c3264694], retrying...."
+time="2025-06-09T15:59:05.135742559-06:00" level=info msg="Removing stale sandbox" cid=143082f4058d isRestore=false sid=b07e9fbfafbe
+time="2025-06-09T15:59:05.519101054-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
+time="2025-06-09T15:59:05.519416276-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 0c14e311b09b246e9c376f05f1f5da3c14fb8f66eadc4d39335cf8c61121cf06], retrying...."
+time="2025-06-09T15:59:05.574261240-06:00" level=info msg="Removing stale sandbox" cid=0a8cf10841ba isRestore=false sid=c21eda531838
+time="2025-06-09T15:59:05.702559346-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
+time="2025-06-09T15:59:05.702881268-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 4ce6f641a0a2a3e699d670e3e281e20bdc71dea9cb528b70903a00d9b3110983], retrying...."
+time="2025-06-09T15:59:05.760235804-06:00" level=info msg="Removing stale sandbox" cid=b893ab2535fc isRestore=false sid=c61a2df4b7c7
+time="2025-06-09T15:59:05.870920601-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
+time="2025-06-09T15:59:05.871248724-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 9dd119c50721b3cc5947953d74035d6a4d22766bb2979b7256b10de4dd276e6e], retrying...."
+time="2025-06-09T15:59:05.922620950-06:00" level=info msg="Removing stale sandbox" cid=8042c10db7f9 isRestore=false sid=0297b75c4a9e
+time="2025-06-09T15:59:06.030152331-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
+time="2025-06-09T15:59:06.030527456-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 5a2eaaa802b33d8f8e0e4218f2cfe04bc65a5f76a7ab6caee2847c61f957f9ae], retrying...."
+time="2025-06-09T15:59:06.080373077-06:00" level=info msg="Removing stale sandbox" cid=cdbb55f376ad isRestore=false sid=7bbc567f0def
+time="2025-06-09T15:59:06.208075142-06:00" level=warning msg="Failed deleting service host entries to the running container: open : no such file or directory"
+time="2025-06-09T15:59:06.208391764-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint eafe5d46681c47c0876bf1595643f7564e6ad0c0fc21284a17eacf0968d1f858 2491185b904f455725ee367babda51dabdf4a9b468b02c77e39ec881e6e32370], retrying...."
+time="2025-06-09T15:59:06.579000601-06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint_count dc03cb0ded9217ce6a4ebdc9de7d2d6f4ede101caaab41e93bab97f2b7db98ff], retrying...."
+time="2025-06-09T15:59:06.648480870-06:00" level=warning msg="error locating sandbox id c21eda53183883e852a0495956b5f02757d257886139c7bb45124536f543e02e: sandbox c21eda53183883e852a0495956b5f02757d257886139c7bb45124536f543e02e not found"
+time="2025-06-09T15:59:06.652926275-06:00" level=warning msg="error locating sandbox id c61a2df4b7c765cfe1d2cf3f8ed98149e2ff5de5c795f621d8b77b253d34a2a6: sandbox c61a2df4b7c765cfe1d2cf3f8ed98149e2ff5de5c795f621d8b77b253d34a2a6 not found"
+time="2025-06-09T15:59:06.653188093-06:00" level=warning msg="error locating sandbox id a09c0b1e392c90f76d7b6873d4d7007edda5df861b650c3224a3dc561ebea540: sandbox a09c0b1e392c90f76d7b6873d4d7007edda5df861b650c3224a3dc561ebea540 not found"
+time="2025-06-09T15:59:06.653411709-06:00" level=warning msg="error locating sandbox id b07e9fbfafbea8287890fefd44decccb480b2b2a7a3eb401ba9a75019692d150: sandbox b07e9fbfafbea8287890fefd44decccb480b2b2a7a3eb401ba9a75019692d150 not found"
+time="2025-06-09T15:59:06.653634524-06:00" level=warning msg="error locating sandbox id 7bbc567f0defc2fb8b68e7cdf497c4a7f158a1482fc9b79cf71604db993779ee: sandbox 7bbc567f0defc2fb8b68e7cdf497c4a7f158a1482fc9b79cf71604db993779ee not found"
+time="2025-06-09T15:59:06.653902842-06:00" level=warning msg="error locating sandbox id 0297b75c4a9eff9fa23285ba0a201225ef70dcf4319f18700cfb71b94ae2c2f8: sandbox 0297b75c4a9eff9fa23285ba0a201225ef70dcf4319f18700cfb71b94ae2c2f8 not found"
+time="2025-06-09T15:59:06.872633255-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-09T15:59:06.892096591-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-09T15:59:06.909486985-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-09T15:59:06.965872455-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-09T15:59:07.083606436-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-09T15:59:07.107834699-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-09T15:59:07.175205223-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-09T15:59:07.330223062-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+time="2025-06-09T15:59:07.410128647-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-09T15:59:07.410557276-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/143082f4058d0dbcde2e54695c7d0b56c775722599ed1904f666adab076f8bac/memory.events\": no such file or directory"
+time="2025-06-09T15:59:07.493354059-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-09T15:59:07.493619677-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/dd88edf2283f461f3a5fa1583f35cfcdb941fb700d88428730dcf4aea199d894/memory.events\": no such file or directory"
+time="2025-06-09T15:59:07.533726430-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-09T15:59:07.534053153-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/23167191df2d23f415595daaead174a03cb3806b4277a2d3e785105abe290bf8/memory.events\": no such file or directory"
+time="2025-06-09T15:59:07.598450373-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-09T15:59:07.598740192-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/b893ab2535fc30788cadaef4e47c4d88a46b990fbbd65905e433a073d5aa915e/memory.events\": no such file or directory"
+time="2025-06-09T15:59:07.657560730-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-09T15:59:07.657827448-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/cdbb55f376adcb8feac1ad6624f7713e3b79e550447f415ae54f80ca724f60ee/memory.events\": no such file or directory"
+time="2025-06-09T15:59:07.658211474-06:00" level=info msg="ignoring event" container=dd88edf2283f461f3a5fa1583f35cfcdb941fb700d88428730dcf4aea199d894 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2025-06-09T15:59:07.658040463-06:00" level=info msg="shim disconnected" id=dd88edf2283f461f3a5fa1583f35cfcdb941fb700d88428730dcf4aea199d894 namespace=moby
+time="2025-06-09T15:59:07.658802815-06:00" level=warning msg="cleaning up after shim disconnected" id=dd88edf2283f461f3a5fa1583f35cfcdb941fb700d88428730dcf4aea199d894 namespace=moby
+time="2025-06-09T15:59:07.659041731-06:00" level=info msg="cleaning up dead shim" namespace=moby
+time="2025-06-09T15:59:07.714440034-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-09T15:59:07.715202886-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/8042c10db7f9bd8cb5111c4ce945b660d8a1b5466626f7dfadf2c91e28b8ca72/memory.events\": no such file or directory"
+time="2025-06-09T15:59:07.769107886-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-09T15:59:07.770004347-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/5c4fcc591a041a857154565eadb7884e361980c3728d022613789acedd4289ab/memory.events\": no such file or directory"
+time="2025-06-09T15:59:07.819017811-06:00" level=error msg="failed to enable controllers ([cpuset cpu io memory hugetlb pids rdma])" error="failed to write subtree controllers [cpuset cpu io memory hugetlb pids rdma] to \"/sys/fs/cgroup/docker/cgroup.subtree_control\": write /sys/fs/cgroup/docker/cgroup.subtree_control: no such file or directory"
+time="2025-06-09T15:59:07.819373136-06:00" level=warning msg="error from *cgroupsv2.Manager.EventChan" error="failed to add inotify watch for \"/sys/fs/cgroup/docker/0a8cf10841ba87acfb7776e3fee0ca1807b7c2b0b14eb4d9adc5b19710a55365/memory.events\": no such file or directory"
+time="2025-06-09T15:59:07.829244613-06:00" level=info msg="Loading containers: done."
+time="2025-06-09T15:59:08.034248384-06:00" level=info msg="Docker daemon" commit=45873be containerd-snapshotter=false storage-driver=overlay2 version=28.2.2
+time="2025-06-09T15:59:08.282054293-06:00" level=info msg="Initializing buildkit"
+time="2025-06-09T15:59:08.284051830-06:00" level=warning msg="CDI setup error /etc/cdi: failed to monitor for changes: no such file or directory"
+time="2025-06-09T15:59:08.284426555-06:00" level=warning msg="CDI setup error /var/run/cdi: failed to monitor for changes: no such file or directory"
+time="2025-06-09T15:59:08.331228468-06:00" level=info msg="Completed buildkit initialization"
+time="2025-06-09T15:59:08.345538650-06:00" level=info msg="Daemon has completed initialization"
+time="2025-06-09T15:59:08.345866772-06:00" level=info msg="API listen on /var/run/docker.sock"
+time="2025-06-09T15:59:08.517786972-06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"

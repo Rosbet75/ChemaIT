@@ -21,15 +21,20 @@ services:
     ports:
       - "0.0.0.0:389:389"
       - "0.0.0.0:636:636"
+    # command: >
+    #   bash -c "slapadd -F /etc/ldap/slapd.d -l /path/to/initial.ldif &&
+    #   chown -R openldap:openldap /var/lib/ldap"
+    command: > 
+      bash -c "sleep infinity"
     environment:
       LDAP_ORGANISATION: "NtEum S.A."
       LDAP_DOMAIN: "nteum.local"
       LDAP_ADMIN_PASSWORD: "eneto"
       LDAP_CONFIG_PASSWORD: "eneto"
       LDAP_TLS: "false"
-    volumes:
-      - /setup/local/acceso-unico/data:/var/lib/ldap        
-      - /setup/local/acceso-unico/config:/etc/ldap/slapd.d
+    # volumes:
+    #   - /setup/local/acceso-unico/data:/var/lib/ldap
+    #   - /setup/local/acceso-unico/config:/etc/ldap/slapd.d
 
     restart: always
 
@@ -53,11 +58,6 @@ services:
       - -w
       - "WORKGROUP"
     restart: always
-
-
-
-
-
 
   impresion-red:
     image: olbat/cupsd:latest
@@ -104,18 +104,18 @@ services:
 
 
 
-  libreoffice:
-    image: linuxserver/libreoffice:latest
-    container_name: libreoffice
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Mexico_City
-    ports:
-      - "3000:3000"
-    volumes:
-      - /setup/local/libreoffice/config:/config
-      - /setup/local/libreoffice/documentos:/documents
-    restart: unless-stopped
+  # libreoffice:
+  #   image: linuxserver/libreoffice:latest
+  #   container_name: libreoffice
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=America/Mexico_City
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - /setup/local/libreoffice/config:/config
+  #     - /setup/local/libreoffice/documentos:/documents
+  #   restart: unless-stopped
 
 
