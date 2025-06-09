@@ -193,7 +193,7 @@ services:
       firewall:
           condition: service_healthy
     image: ubuntu:latest
-    container_name: impresora_1
+    container_name: impresora_2
     privileged: true
     command: >
       bash -c "apt update &&
