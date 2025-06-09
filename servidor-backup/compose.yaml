@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   servidor_backup:
@@ -7,13 +7,11 @@ services:
     ports:
       - "873:873"
     volumes:
-      - ./respaldo:/data
-      - ./local/acceso-unico:/mnt/acceso-unico:ro
-      - ./local/datos-compartidos-windows:/mnt/datos-compartidos-windows:ro
-      - ./local/impresion-red:/mnt/impresion-red:ro
-      - ./local/servidor-web:/mnt/servidor-web:ro
-      - ./local/base-datos/data:/mnt/base-datos:ro
-      - ./local/libreoffice/documentos:/mnt/libreoffice:ro
+      - ./local/respaldo:/data
+    networks:
+      red_servidores:
+        ipv4_address: 172.172.20.20
+    restart: always
     command: >
       sh -c "
         apk add --no-cache rsync &&
@@ -38,4 +36,8 @@ services:
         ' > /etc/rsyncd.conf &&
         rsync --daemon --no-detach
       "
-    restart: always
+
+networks:
+  red_servidores:
+    external: true
+    name: chemait_red_servidores
