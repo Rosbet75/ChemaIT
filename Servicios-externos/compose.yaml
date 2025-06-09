@@ -21,7 +21,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./local/servidor-web-publico/www:/usr/share/nginx/html:ro
+      - /setup/local/servidor-web-publico/www:/usr/share/nginx/html:ro
     restart: always
 
 ######################################################################
@@ -39,10 +39,10 @@ services:
       - "587:587"
       - "993:993"
     volumes:
-      - ./local/servidor-correo/config:/tmp/docker-mailserver
-      - ./local/servidor-correo/maildata:/var/mail
-      - ./local/servidor-correo/state:/var/mail-state
-      - ./local/servidor-correo/logs:/var/log/mail
+      - /setup/local/servidor-correo/config:/tmp/docker-mailserver
+      - /setup/local/servidor-correo/maildata:/var/mail
+      - /setup/local/servidor-correo/state:/var/mail-state
+      - /setup/local/servidor-correo/logs:/var/log/mail
     environment:
       - ENABLE_SPAMASSASSIN=1
       - ENABLE_CLAMAV=1
@@ -66,7 +66,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./local/base-datos-mysql/data:/var/lib/mysql
+      - /setup/local/base-datos-mysql/data:/var/lib/mysql
     restart: always
 
 ######################################################################
@@ -84,7 +84,7 @@ services:
       PASV_MIN_PORT: 30000
       PASV_MAX_PORT: 30009
     volumes:
-      - ./local/servidor-ftp/data:/home/ftpuser
+      - /setup/local/servidor-ftp/data:/home/ftpuser
     restart: always
 
 ######################################################################
@@ -98,7 +98,7 @@ services:
       FORUM_ADMIN_USER: admin
       FORUM_ADMIN_PASSWORD: eneto123
     volumes:
-      - ./local/foro-edxops/data:/var/lib/forum
+      - /setup/local/foro-edxops/data:/var/lib/forum
     restart: always
 
 ######################################################################
