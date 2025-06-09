@@ -1,28 +1,41 @@
-version: "3.9"
+version: '3.9'
 
 services:
   servidor_backup:
-    image: alpinelinux/rsyncd:latest
+    image: alpine:latest
     container_name: servidor_backup
     ports:
       - "873:873"
     volumes:
       - ./respaldo:/data
-    restart: always
-    environment:
-      RSYNC_USERNAME: backupuser
-      RSYNC_PASSWORD: secret123
-      RSYNC_MODULES: respaldo
-      RSYNC_MODULE_respaldo_comment: "Carpeta de respaldo"
-      RSYNC_MODULE_respaldo_path: /data
-      RSYNC_MODULE_respaldo_read_only: "false"
-    networks:
-      red_servidores:
-        ipv4_address: 172.25.0.10
+      - ./local/acceso-unico:/mnt/acceso-unico:ro
+      - ./local/datos-compartidos-windows:/mnt/datos-compartidos-windows:ro
+      - ./local/impresion-red:/mnt/impresion-red:ro
+      - ./local/servidor-web:/mnt/servidor-web:ro
+      - ./local/base-datos/data:/mnt/base-datos:ro
+      - ./local/libreoffice/documentos:/mnt/libreoffice:ro
+    command: >
+      sh -c "
+        apk add --no-cache rsync &&
+        adduser -D backupuser &&
+        echo 'backupuser:secret123' > /etc/rsyncd.secrets &&
+        chmod 600 /etc/rsyncd.secrets &&
+        echo '
+        uid = backupuser
+        gid = backupuser
+        use chroot = no
+        max connections = 2
+        log file = /var/log/rsyncd.log
+        timeout = 300
+        auth users = backupuser
+        secrets file = /etc/rsyncd.secrets
 
-networks:
-  red_servidores:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.25.0.0/24
+        [respaldo]
+          path = /data
+          comment = Carpeta de respaldo
+          read only = no
+          list = yes
+        ' > /etc/rsyncd.conf &&
+        rsync --daemon --no-detach
+      "
+    restart: always
