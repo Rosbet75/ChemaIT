@@ -12,30 +12,7 @@ services:
       red_servidores:
         ipv4_address: 172.172.20.20
     restart: always
-    command: >
-      sh -c "
-        apt add --no-cache rsync &&
-        adduser -D backupuser &&
-        echo 'backupuser:secret123' > /etc/rsyncd.secrets &&
-        chmod 600 /etc/rsyncd.secrets &&
-        echo '
-        uid = backupuser
-        gid = backupuser
-        use chroot = no
-        max connections = 2
-        log file = /var/log/rsyncd.log
-        timeout = 300
-        auth users = backupuser
-        secrets file = /etc/rsyncd.secrets
-
-        [respaldo]
-          path = /data
-          comment = Carpeta de respaldo
-          read only = no
-          list = yes
-        ' > /etc/rsyncd.conf &&
-        rsync --daemon --no-detach
-      "
+    command: sh -c "apk add --no-cache rsync && adduser -D backupuser && echo 'backupuser:secret123' > /etc/rsyncd.secrets && chmod 600 /etc/rsyncd.secrets && echo 'uid = backupuser\ngid = backupuser\nuse chroot = no\nmax connections = 2\nlog file = /var/log/rsyncd.log\ntimeout = 300\nauth users = backupuser\nsecrets file = /etc/rsyncd.secrets\n\n[respaldo]\n  path = /data\n  comment = Carpeta de respaldo\n  read only = no\n  list = yes' > /etc/rsyncd.conf && rsync --daemon --no-detach"
 
 networks:
   red_servidores:
