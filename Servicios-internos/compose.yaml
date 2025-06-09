@@ -30,9 +30,9 @@ services:
       LDAP_TLS_CRT_FILENAME: "ldap.crt"
       LDAP_TLS_KEY_FILENAME: "ldap.key"
     volumes:
-      - ./ldap/config:/container/service/slapd/assets/config
-      - ./ldap/certs:/container/service/slapd/assets/certs
-      - ./ldap/data:/var/lib/ldap
+      - ./local/acceso-unico/config:/container/service/slapd/assets/config
+      - ./local/acceso-unico/certs:/container/service/slapd/assets/certs
+      - ./local/acceso-unico/data:/var/lib/ldap
     restart: always
 
 
@@ -44,13 +44,17 @@ services:
       - "137:137/udp"
       - "138:138/udp"
       - "139:139/tcp"
-      - "445:445/tcp"
+      - "1445:445/tcp"
     volumes:
-      - ./compartido:/mount
-    command: >
-      -u "eneto;eneto"
-      -s "public;/mount;yes;no;no;eneto"
+      - ./local/datos-compartidos-windows:/mount
+    command:
+      - -u
+      - "eneto;eneto"
+      - -s
+      - "public;/mount;yes;no;no;eneto"
     restart: always
+
+
 
 
 
@@ -60,8 +64,8 @@ services:
     ports:
       - "631:631"
     volumes:
-      - ./config/cups:/etc/cups
-      - ./data/cups:/var/spool/cups
+      - ./local/impresion-red/config:/etc/cups
+      - ./local/impresion-red/data:/var/spool/cups
     restart: always
 
 
@@ -72,7 +76,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./www:/usr/share/nginx/html:ro
+      - ./local/servidor-web/www:/usr/share/nginx/html:ro
     restart: always
 
 
@@ -86,7 +90,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql-data:/var/lib/mysql
+      - ./local/base-datos/data:/var/lib/mysql
     restart: always
 
 
@@ -101,6 +105,6 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./libreoffice/config:/config
-      - ./documentos:/documents
+      - ./local/libreoffice/config:/config
+      - ./local/libreoffice/documentos:/documents
     restart: unless-stopped
