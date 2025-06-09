@@ -173,7 +173,36 @@ services:
       interval: 10s
       timeout: 10s
       retries: 10
-
+  impresora_1:
+    depends_on:
+      firewall:
+          condition: service_healthy
+    image: ubuntu:latest
+    container_name: impresora_1
+    privileged: true
+    command: >
+      bash -c "apt update &&
+               apt install -y rsync net-tools iputils-ping curl iproute2 &&
+               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
+               tail -f /dev/null"
+    networks:
+      red_impresion:
+        ipv4_address: 172.172.50.3
+  impresora_2:
+    depends_on:
+      firewall:
+          condition: service_healthy
+    image: ubuntu:latest
+    container_name: impresora_1
+    privileged: true
+    command: >
+      bash -c "apt update &&
+               apt install -y rsync net-tools iputils-ping curl iproute2 &&
+               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
+               tail -f /dev/null"
+    networks:
+      red_impresion:
+        ipv4_address: 172.172.50.4
 
 volumes:
   docker-interno:

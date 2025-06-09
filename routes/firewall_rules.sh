@@ -59,18 +59,25 @@ iptables -A INPUT -i red_dmz -j ACCEPT
 iptables -A INPUT -i red_admin -j ACCEPT
 iptables -A INPUT -i red_impresion -j ACCEPT
 
-iptables -A FORWARD -i red_usuarios -o red_servidores -j ACCEPT
-iptables -A FORWARD -i red_servidores -o red_usuarios -j ACCEPT
-iptables -A FORWARD -i red_usuarios -o red_dmz -j ACCEPT
-iptables -A FORWARD -i red_dmz -o red_usuarios -j ACCEPT
-iptables -A FORWARD -i red_usuarios -o red_admin -j ACCEPT
-iptables -A FORWARD -i red_admin -o red_usuarios -j ACCEPT
-iptables -A FORWARD -i red_servidores -o red_dmz -j ACCEPT
-iptables -A FORWARD -i red_dmz -o red_servidores -j ACCEPT
-iptables -A FORWARD -i red_servidores -o red_admin -j ACCEPT
-iptables -A FORWARD -i red_admin -o red_servidores -j ACCEPT
-iptables -A FORWARD -i red_dmz -o red_admin -j ACCEPT
+# Reglas para red_admin
 iptables -A FORWARD -i red_admin -o red_dmz -j ACCEPT
+iptables -A FORWARD -i red_admin -o red_servidores -j ACCEPT
+iptables -A FORWARD -i red_admin -o red_usuarios -j ACCEPT
+
+# Reglas para red_dmz
+iptables -A FORWARD -i red_dmz -o red_admin -j ACCEPT
+iptables -A FORWARD -i red_dmz -o red_servidores -j ACCEPT
+iptables -A FORWARD -i red_dmz -o red_usuarios -j ACCEPT
+
+# Reglas para red_servidores
+iptables -A FORWARD -i red_servidores -o red_admin -j ACCEPT
+iptables -A FORWARD -i red_servidores -o red_dmz -j ACCEPT
+iptables -A FORWARD -i red_servidores -o red_usuarios -j ACCEPT
+
+# Reglas para red_usuarios
+iptables -A FORWARD -i red_usuarios -o red_admin -j ACCEPT
+iptables -A FORWARD -i red_usuarios -o red_dmz -j ACCEPT
+iptables -A FORWARD -i red_usuarios -o red_servidores -j ACCEPT
 
 # Permitir tráfico establecido y relacionado
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
