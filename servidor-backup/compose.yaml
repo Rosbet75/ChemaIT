@@ -7,7 +7,7 @@ services:
     ports:
       - "873:873"
     volumes:
-      - ./local/respaldo:/data
+      - /setup/local/respaldo:/data
     networks:
       red_servidores:
         ipv4_address: 172.172.20.20

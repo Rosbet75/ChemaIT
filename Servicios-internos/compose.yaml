@@ -28,8 +28,8 @@ services:
       LDAP_CONFIG_PASSWORD: "eneto"
       LDAP_TLS: "false"
     volumes:
-      - ./local/acceso-unico/data:/var/lib/ldap        
-      - ./local/acceso-unico/config:/etc/ldap/slapd.d
+      - /setup/local/acceso-unico/data:/var/lib/ldap        
+      - /setup/local/acceso-unico/config:/etc/ldap/slapd.d
 
     restart: always
 
@@ -44,7 +44,7 @@ services:
       - "139:139/tcp"
       - "1445:445/tcp"
     volumes:
-      - ./local/datos-compartidos-windows:/mount
+      - /setup/local/datos-compartidos-windows:/mount
     command:
       - -u
       - "eneto;eneto"
@@ -64,12 +64,14 @@ services:
     container_name: impresion-red
     ports:
       - "631:631"
+    command: > 
+      bash -c "sleep infinity"
     environment:
-      - CUPS_USER_ADMIN=eneto
-      - CUPS_USER_PASSWORD=eneto
+      CUPS_USER_ADMIN: eneto
+      CUPS_USER_PASSWORD: eneto
     volumes:
-      - ./local/impresion-red/config:/etc/cups
-      - ./local/impresion-red/data:/var/spool/cups
+      - /setup/local/impresion-red/config:/etc/cups
+      - /setup/local/impresion-red/data:/var/spool/cups
     restart: always
 
 
@@ -80,7 +82,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./local/servidor-web/www:/usr/share/nginx/html:ro
+      - /setup/local/servidor-web/www:/usr/share/nginx/html:ro
     restart: always
 
 
@@ -96,7 +98,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./local/base-datos/data:/var/lib/mysql
+      - /setup/local/base-datos/data:/var/lib/mysql
     restart: always
 
 
@@ -112,8 +114,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./local/libreoffice/config:/config
-      - ./local/libreoffice/documentos:/documents
+      - /setup/local/libreoffice/config:/config
+      - /setup/local/libreoffice/documentos:/documents
     restart: unless-stopped
 
 
