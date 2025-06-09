@@ -19,19 +19,15 @@ services:
     image: osixia/openldap:latest
     container_name: acceso-unico
     ports:
-      - "389:389"
-      - "636:636"
+      - "0.0.0.0:389:389"
+      - "0.0.0.0:636:636"
     environment:
       LDAP_ORGANISATION: "NtEum S.A."
       LDAP_DOMAIN: "nteum.local"
       LDAP_ADMIN_PASSWORD: "eneto"
       LDAP_CONFIG_PASSWORD: "eneto"
-      LDAP_TLS: "true"
-      LDAP_TLS_CRT_FILENAME: "ldap.crt"
-      LDAP_TLS_KEY_FILENAME: "ldap.key"
+      LDAP_TLS: "false"
     volumes:
-      - ./local/acceso-unico/config:/container/service/slapd/assets/config
-      - ./local/acceso-unico/certs:/container/service/slapd/assets/certs
       - ./local/acceso-unico/data:/var/lib/ldap
     restart: always
 
@@ -52,7 +48,10 @@ services:
       - "eneto;eneto"
       - -s
       - "public;/mount;yes;no;no;eneto"
+      - -w
+      - "WORKGROUP"
     restart: always
+
 
 
 
