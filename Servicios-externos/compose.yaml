@@ -1,14 +1,113 @@
+
 services:
-  emailRelleno:
-    image: juanluisbaptiste/postfix:latest
-    container_name: correo
+
+  # servidor-impresion-p910nd:
+  #   image: justinhimself/p910nd:latest
+  #   container_name: servidor-impresion-p910nd
+  #   ports:
+  #     - "9100:9100"  
+  #   volumes:
+  #     - ./local/servidor-impresion-p910nd/data:/var/spool/p910nd
+  #   restart: always
+
+
+
+
+
+
+  servidor-web-publico:
+    image: nginx:latest
+    container_name: servidor-web-publico
     ports:
-      - "588:588"
+      - "80:80"
+    volumes:
+      - ./local/servidor-web-publico/www:/usr/share/nginx/html:ro
     restart: always
+
+######################################################################
+
+  servidor-correo:
+    image: mailserver/docker-mailserver:latest
+    container_name: servidor-correo
+    hostname: mail
+    domainname: nteum.com
+    ports:
+      - "25:25"
+      - "143:143"
+      - "465:465"
+
+      - "587:587"
+      - "993:993"
+    volumes:
+      - ./local/servidor-correo/config:/tmp/docker-mailserver
+      - ./local/servidor-correo/maildata:/var/mail
+      - ./local/servidor-correo/state:/var/mail-state
+      - ./local/servidor-correo/logs:/var/log/mail
     environment:
-      SMTP_SERVER: nteum.com        # Replace with your actual SMTP server
-      SMTP_PORT: 588                       # Optional, can be omitted if 587
-      SMTP_USERNAME: eneto         # Optional, set if authentication is needed
-      SMTP_PASSWORD: eneto        # Mandatory if SMTP_USERNAME is set
-      SERVER_HOSTNAME: nteum.com # Replace with your mail domain
-  
+      - ENABLE_SPAMASSASSIN=1
+      - ENABLE_CLAMAV=1
+      - ENABLE_FAIL2BAN=1
+      - ONE_DIR=1
+      - ACCOUNT_PROVISIONER=FILE
+    restart: always
+
+
+
+######################################################################
+
+  base-datos-mysql:
+    image: mysql:8.0
+    container_name: base-datos-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: eneto
+      MYSQL_USER: eneto
+      MYSQL_PASSWORD: eneto
+      MYSQL_DATABASE: nteum_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./local/base-datos-mysql/data:/var/lib/mysql
+    restart: always
+
+######################################################################
+
+  servidor-ftp:
+    image: delfer/alpine-ftp-server:latest
+    container_name: servidor-ftp
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    environment:
+      FTP_USER: eneto
+      FTP_PASS: eneto
+      PASV_ADDRESS: 0.0.0.0
+      PASV_MIN_PORT: 30000
+      PASV_MAX_PORT: 30009
+    volumes:
+      - ./local/servidor-ftp/data:/home/ftpuser
+    restart: always
+
+######################################################################
+
+  foro-edxops:
+    image: edxops/forum:latest
+    container_name: foro-edxops
+    ports:
+      - "8081:80"
+    environment:
+      FORUM_ADMIN_USER: admin
+      FORUM_ADMIN_PASSWORD: eneto123
+    volumes:
+      - ./local/foro-edxops/data:/var/lib/forum
+    restart: always
+
+######################################################################
+
+  ecommerce-ui:
+    image: rslim087/ecommerce-ui:latest
+    container_name: ecommerce-ui
+    ports:
+      - "3000:4000"
+    environment:
+      NODE_ENV: production
+    restart: always
