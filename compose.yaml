@@ -49,8 +49,7 @@ services:
         ipv4_address: 172.172.20.10
     command: >
       bash -c "apt update &&
-               apt install -y openssh-server net-tools iputils-ping curl iproute2 && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
-               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && tail -f /dev/null"
+               apt install -y openssh-server net-tools iputils-ping curl iproute2 && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/datostest.sh && bash /setup/datostest.sh && tail -f /dev/null"
     volumes:
       - ./Servicios-internos:/setup
       - docker-interno:/var/lib/docker

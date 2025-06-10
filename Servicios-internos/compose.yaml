@@ -96,7 +96,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - /setup/local/servidor-web/www:/usr/share/nginx/html:ro
+      - /setup/local/servidor-web/www:/usr/share/nginx/html
     restart: always
 
 

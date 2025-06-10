@@ -1,0 +1,3 @@
+netstat -tlnp | grep sshd
+ps aux | grep sshd
+ssh -i /keys/llave_servicios_internos.pem root@172.172.20.10
