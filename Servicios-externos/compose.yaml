@@ -38,6 +38,7 @@ services:
       MYSQL_USER: eneto
       MYSQL_PASSWORD: eneto
       MYSQL_DATABASE: nteum_db
+      MYSQL_INNODB_FORCE_RECOVERY: 1
     ports:
       - "3308:3306"
     volumes:
