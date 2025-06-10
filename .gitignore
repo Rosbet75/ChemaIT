@@ -50,3 +50,4 @@ config/secrets.yml
 Servicios-internos/local/libreoffice/config/.XDG/
 
 
+/keys/*

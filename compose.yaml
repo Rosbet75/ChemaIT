@@ -49,13 +49,14 @@ services:
         ipv4_address: 172.172.20.10
     command: >
       bash -c "apt update &&
-               apt install -y net-tools iputils-ping curl iproute2 &&
+               apt install -y openssh-server net-tools iputils-ping curl iproute2 && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
                bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && tail -f /dev/null"
     volumes:
       - ./Servicios-internos:/setup
       - docker-interno:/var/lib/docker
       - ./routes:/routes
       - ./utilities:/utilities
+      - ./keys:/keys
     restart: always
 
   servidor_backup:
@@ -70,14 +71,15 @@ services:
         ipv4_address: 172.172.20.20
     command: >
       bash -c "apt update &&
-               apt install -y rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_dmz_routes.sh &&
-               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
+               apt install -y openssh-server rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_dmz_routes.sh &&
+               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
                tail -f /dev/null"
     volumes:
       - ./servidor-backup:/setup
       - docker-interno:/var/lib/docker
       - ./routes:/routes
       - ./utilities:/utilities
+      - ./keys:/keys
     restart: always
 
   servicios_externos:
@@ -92,13 +94,14 @@ services:
         ipv4_address: 172.172.30.10
     command: >
       bash -c "apt update &&
-               apt install -y net-tools iputils-ping curl iproute2 && chmod +x /routes/red_dmz_routes.sh &&
-               bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && tail -f /dev/null "
+               apt install -y openssh-server net-tools iputils-ping curl iproute2 && chmod +x /routes/red_dmz_routes.sh &&
+               bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && tail -f /dev/null "
     volumes:
       - ./Servicios-externos:/setup
       - docker-externo:/var/lib/docker
       - ./routes:/routes
       - ./utilities:/utilities
+      - ./keys:/keys
     ports:
       - "80:80"
     restart: always
@@ -115,13 +118,14 @@ services:
         ipv4_address: 172.172.10.10
     command: >
       bash -c "apt update &&
-               apt install -y net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_usuarios_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
+               apt install -y openssh-server net-tools iputils-ping curl iproute2 &&
+               bash /routes/red_usuarios_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
                tail -f /dev/null"
     volumes:
       - ./Usuarios-internos:/setup
       - ./routes:/routes
       - ./utilities:/utilities
+      - ./keys:/keys
     restart: always
 
   admin_test:
@@ -136,12 +140,13 @@ services:
         ipv4_address: 172.172.40.20
     command: >
       bash -c "apt update &&
-               apt install -y net-tools iputils-ping curl htop iproute2 &&
-               bash /routes/red_admin_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh &&
+               apt install -y openssh-client net-tools iputils-ping curl htop iproute2 &&
+               bash /routes/red_admin_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
                tail -f /dev/null"
     volumes:
       - ./routes:/routes
       - ./utilities:/utilities
+      - ./keys:/keys
     restart: always
 
   firewall:
@@ -161,13 +166,14 @@ services:
         ipv4_address: 172.172.50.2
     
     command: >
-      bash -c "apt update && apt install -y iptables iproute2 net-tools iputils-ping curl tcpdump && sysctl -w net.ipv4.ip_forward=1 && echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf && bash /routes/firewall_rules.sh && tail -f /dev/null && sleep infinity"
+      bash -c "apt update && apt install -y openssh-server iptables iproute2 net-tools iputils-ping curl tcpdump && sysctl -w net.ipv4.ip_forward=1 && echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf && bash /routes/firewall_rules.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && tail -f /dev/null && sleep infinity"
     
     restart: always
     volumes:
       - ./routes:/routes
       - ./LOGS:/LOGS
       - ./utilities:/utilities
+      - ./keys:/keys
     healthcheck:
       test: ["CMD-SHELL", "chmod +x /utilities/healthcheck.sh && /utilities/healthcheck.sh"]
       interval: 10s
@@ -182,11 +188,13 @@ services:
     privileged: true
     command: >
       bash -c "apt update &&
-               apt install -y rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_impresion_routes.sh &&
+               apt install -y openssh-server rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_impresion_routes.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
                bash /routes/red_impresion_routes.sh &&
                tail -f /dev/null"
     volumes:
       - ./routes:/routes
+      - ./keys:/keys
+      - ./impresoras/impresora2:/setup
     networks:
       red_impresion:
         ipv4_address: 172.172.50.3
@@ -199,10 +207,12 @@ services:
     privileged: true
     command: >
       bash -c "apt update &&
-               apt install -y rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_impresion_routes.sh &&
+               apt install -y openssh-server rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_impresion_routes.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
                bash /routes/red_impresion_routes.sh && tail -f /dev/null"
     volumes:
       - ./routes:/routes
+      - ./keys:/keys
+      - ./impresoras/impresora1:/setup
     networks:
       red_impresion:
         ipv4_address: 172.172.50.4
