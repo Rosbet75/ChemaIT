@@ -1,35 +1,32 @@
 version: "3.9"
 
 services:
-  servidor_backup:
-    image: alpine:latest
-    container_name: servidor_backup
+  cliente_respaldo:
+    image: ubuntu:22.04
+    container_name: cliente_respaldo
     ports:
       - "873:873"
-    volumes:
-      - /setup/local/respaldo:/data
-    restart: always
     command: >
-      sh -c "
-        apk add --no-cache rsync &&
-        adduser -D backupuser &&
-        echo 'backupuser:secret123' > /etc/rsyncd.secrets &&
-        chmod 600 /etc/rsyncd.secrets &&
-        echo '
-        uid = backupuser
-        gid = backupuser
-        use chroot = no
-        max connections = 2
-        log file = /var/log/rsyncd.log
-        timeout = 300
-        auth users = backupuser
-        secrets file = /etc/rsyncd.secrets
+      bash -c "
+        apt update &&
+        apt install -y rsync iputils-ping &&
+        
+        # Configurar archivo de contraseñas con permisos seguros
+        mkdir -p /etc/rsync &&
+        echo 'password123' > /etc/rsync/rsyncd.secrets &&
+        chmod 600 /etc/rsync/rsyncd.secrets &&
+        chown root:root /etc/rsync/rsyncd.secrets &&
+        
+        echo '[INFO] Iniciando respaldo externo...' &&
+        rsync -avz --port=873 --password-file=/etc/rsync/rsyncd.secrets rsync://backupuser@172.172.30.10/backup/dockerd.log /respaldos/externo/ &&
 
-        [respaldo]
-          path = /data
-          comment = Carpeta de respaldo
-          read only = no
-          list = yes
-        ' > /etc/rsyncd.conf &&
-        rsync --daemon --no-detach
+        echo '[INFO] Iniciando respaldo interno...' &&
+        rsync -avz --port=873 --password-file=/etc/rsync/rsyncd.secrets rsync://backupuser@172.172.20.10/backup/dockerd.log /respaldos/interno/ &&
+
+        echo '[INFO] Respaldos completados.'
       "
+    volumes:
+      - /setup/local/respaldointerno:/respaldos/interno
+      - /setup/local/respaldoexterno:/respaldos/externo
+      - ./setup/configure_rsync.sh:/setup/configure_rsync.sh
+    restart: "no"

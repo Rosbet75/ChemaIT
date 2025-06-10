@@ -65,19 +65,22 @@ services:
       - "3307:3307"
     command: >
       bash -c "apt update &&
-               apt install -y kmod openssh-server net-tools iputils-ping curl iproute2 && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/datostest.sh && bash /setup/datostest.sh && tail -f /dev/null"
+               apt install -y rsync kmod openssh-server net-tools iputils-ping curl iproute2 && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && rm -rf /var/lib/docker/containerd && /utilities/dockerInstaller.sh && chmod +x /utilities/rsyncset.sh && bash /utilities/rsyncset.sh && tail -f /dev/null"
     volumes:
       - ./Servicios-internos:/setup
-      - docker-interno:/var/lib/docker
       - ./routes:/routes
       - ./utilities:/utilities
       - ./keys:/keys
-    restart: always
+    
 
   servidor_backup:
     depends_on:
       firewall:
         condition: service_healthy
+      servicios_externos:
+        condition: service_started
+      servicios_internos:
+        condition: service_started
     image: ubuntu:latest
     container_name: servidor_backup
     privileged: true
@@ -85,15 +88,14 @@ services:
       red_servidores:
         ipv4_address: 172.172.20.20
     ports:
-    - "873:873"
+      - "873:873"
     command: >
       bash -c "apt update &&
-               apt install -y kmod openssh-server rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_dmz_routes.sh &&
-               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
+               apt install -y cron kmod openssh-server rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_servidores_routes.sh &&
+               bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && rm -rf /var/lib/docker/containerd && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && chmod +x /setup/cronmyshit.sh && bash /setup/cronmyshit.sh &&
                tail -f /dev/null"
     volumes:
       - ./servidor-backup:/setup
-      - docker-interno:/var/lib/docker
       - ./routes:/routes
       - ./utilities:/utilities
       - ./keys:/keys
@@ -111,8 +113,8 @@ services:
         ipv4_address: 172.172.30.10
     command: >
       bash -c "apt update &&
-               apt install -y kmod openssh-server net-tools iputils-ping curl iproute2 && touch /etc/modules && chmod +x /routes/red_dmz_routes.sh &&
-               bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && tail -f /dev/null "
+               apt install -y rsync kmod openssh-server net-tools iputils-ping curl iproute2 && touch /etc/modules && chmod +x /routes/red_dmz_routes.sh &&
+               bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && chmod +x /utilities/rsyncset.sh && bash /utilities/rsyncset.sh && tail -f /dev/null "
     volumes:
       - ./Servicios-externos:/setup
       - docker-externo:/var/lib/docker
@@ -149,7 +151,7 @@ services:
     command: >
       bash -c "apt update &&
                apt install -y kmod openssh-server net-tools iputils-ping curl iproute2 &&
-               bash /routes/red_usuarios_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
+               bash /routes/red_usuarios_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && 
                tail -f /dev/null"
     volumes:
       - ./Usuarios-internos:/setup

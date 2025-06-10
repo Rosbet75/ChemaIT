@@ -98,4 +98,5 @@ exit 1
 fi
 
 cd /setup
+# echo "12458679aAcb!" | docker login -u rosbet
 docker compose up
