@@ -41,7 +41,7 @@ services:
 ######################################################################
 
   base-datos-mysql:
-    image: mysql:8.0
+    image: mysql:latest
     container_name: base-datos-mysql
     environment:
       MYSQL_ROOT_PASSWORD: eneto
@@ -93,7 +93,7 @@ services:
     image: nodebb/docker:latest
     container_name: foro
     ports:
-      - "8081:4567"
+      - "8083:4567"
     environment:
       - NODEBB_ADMIN_USERNAME=admin
       - NODEBB_ADMIN_PASSWORD=eneto123
