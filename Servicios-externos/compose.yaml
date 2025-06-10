@@ -86,6 +86,8 @@ services:
   mongo:
     image: mongo:6.0
     container_name: foro-mongo
+    ports:
+    - "27017:27017"
     volumes:
       - /setup/local/foro/mongo:/data/db
     restart: always
@@ -93,6 +95,8 @@ services:
   redis:
     image: redis:7
     container_name: foro-redis
+    ports:
+      - "6379:6379"
     volumes:
       - /setup/local/foro/redis:/data
     restart: always

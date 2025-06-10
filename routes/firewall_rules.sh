@@ -64,20 +64,89 @@ iptables -A FORWARD -i red_admin -o red_dmz -j ACCEPT
 iptables -A FORWARD -i red_admin -o red_servidores -j ACCEPT
 iptables -A FORWARD -i red_admin -o red_usuarios -j ACCEPT
 
+
 # Reglas para red_dmz
-iptables -A FORWARD -i red_dmz -o red_admin -j ACCEPT
-iptables -A FORWARD -i red_dmz -o red_servidores -j ACCEPT
-iptables -A FORWARD -i red_dmz -o red_usuarios -j ACCEPT
+iptables -A FORWARD -i red_dmz -o red_admin -j REJECT
+iptables -A FORWARD -i red_dmz -o red_servidores -j REJECT
+iptables -A FORWARD -i red_dmz -o red_usuarios -j REJECT
 
 # Reglas para red_servidores
-iptables -A FORWARD -i red_servidores -o red_admin -j ACCEPT
-iptables -A FORWARD -i red_servidores -o red_dmz -j ACCEPT
-iptables -A FORWARD -i red_servidores -o red_usuarios -j ACCEPT
+iptables -A FORWARD -i red_servidores -o red_admin -j REJECT
+iptables -A FORWARD -i red_servidores -o red_dmz -j REJECT
+iptables -A FORWARD -i red_servidores -o red_usuarios -j REJECT
 
 # Reglas para red_usuarios
-iptables -A FORWARD -i red_usuarios -o red_admin -j ACCEPT
-iptables -A FORWARD -i red_usuarios -o red_dmz -j ACCEPT
-iptables -A FORWARD -i red_usuarios -o red_servidores -j ACCEPT
+
+iptables -A FORWARD -i red_admin -s 172.172.40.20 -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -i red_admin -s 172.172.40.21 -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -i red_admin -s 172.172.40.22 -p tcp --dport 22 -j ACCEPT
+# SMTP (25)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 25 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 25 -j ACCEPT
+
+# IMAP (143)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 143 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 143 -j ACCEPT
+
+# SMTPS (465)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 465 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 465 -j ACCEPT
+
+# Submission (587)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 587 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 587 -j ACCEPT
+
+# IMAPS (993)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 993 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 993 -j ACCEPT
+
+# LDAP (389)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 389 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 389 -j ACCEPT
+
+# LDAPS (636)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 636 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 636 -j ACCEPT
+
+# NetBIOS (UDP 137, 138)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p udp --dport 137 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p udp --dport 137 -j ACCEPT
+
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p udp --dport 138 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p udp --dport 138 -j ACCEPT
+
+# NetBIOS (TCP 139), SMB (1445)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 139 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 139 -j ACCEPT
+
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 1445 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 1445 -j ACCEPT
+
+# IPP (631)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 631 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 631 -j ACCEPT
+
+# Web apps (8080)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 8080 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 8080 -j ACCEPT
+
+# MySQL Alternate Port (3307)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 3307 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 3307 -j ACCEPT
+
+# HTTP (80)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 80 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 80 -j ACCEPT
+
+# HTTPS (443)
+iptables -A FORWARD -i red_usuarios -o red_servidores -d 172.172.20.10 -p tcp --dport 443 -j ACCEPT
+iptables -A FORWARD -i red_admins -o red_servidores -d 172.172.20.10 -p tcp --dport 443 -j ACCEPT
+
+iptables -A FORWARD -i red_usuarios -o red_admin -j REJECT
+iptables -A FORWARD -i red_usuarios -o red_dmz -j REJECT
+iptables -A FORWARD -i red_usuarios -o red_servidores -j REJECT
+
+
 
 # Permitir tráfico establecido y relacionado
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT

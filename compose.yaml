@@ -47,6 +47,22 @@ services:
     networks:
       red_servidores:
         ipv4_address: 172.172.20.10
+    ports:
+      - "22:22"
+      - "25:25"
+      - "143:143"
+      - "465:465"
+      - "587:587"
+      - "993:993"
+      - "389:389"
+      - "636:636"
+      - "137:137"
+      - "138:138"
+      - "139:139"
+      - "1445:1445"
+      - "631:631"
+      - "8080:8080"
+      - "3307:3307"
     command: >
       bash -c "apt update &&
                apt install -y openssh-server net-tools iputils-ping curl iproute2 && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/datostest.sh && bash /setup/datostest.sh && tail -f /dev/null"
@@ -68,6 +84,8 @@ services:
     networks:
       red_servidores:
         ipv4_address: 172.172.20.20
+    ports:
+    - "873:873"
     command: >
       bash -c "apt update &&
                apt install -y openssh-server rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_dmz_routes.sh &&
@@ -102,7 +120,20 @@ services:
       - ./utilities:/utilities
       - ./keys:/keys
     ports:
-      - "80:80"
+      - "80:180"
+      - "26:26"
+      - "144:144"
+      - "466:466"
+      - "2587:2587"
+      - "994:994"
+      - "3308:3308"
+      - "21:21" 
+      - "30000-30009:30000-30009"
+      - "27017:27017"
+      - "6379:6379"
+      - "8083:8083"
+      - "1631:1631"
+      - "3000:3000"
     restart: always
 
   cliente:
