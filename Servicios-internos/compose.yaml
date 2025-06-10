@@ -12,7 +12,7 @@ services:
       SMTP_USERNAME: eneto         # Optional, set if authentication is needed
       SMTP_PASSWORD: eneto        # Mandatory if SMTP_USERNAME is set
       SERVER_HOSTNAME: nteum.com # Replace with your mail domain
-  
+
 ######################################################################
 
   acceso-unico:
