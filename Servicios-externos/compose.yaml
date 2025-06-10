@@ -12,9 +12,9 @@ services:
 
 ######################################################################
 
-  correo_ex:
+  servidor-correo:
     image: juanluisbaptiste/postfix:latest
-    container_name: correo_ex
+    container_name: servidor-correo
     ports:
       - "1587:587"
     restart: always
