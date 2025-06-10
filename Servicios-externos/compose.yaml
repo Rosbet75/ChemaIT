@@ -13,21 +13,21 @@ services:
 ######################################################################
 
   servidor-correo:
-    image: juanluisbaptiste/postfix:latest
+    image: mailserver/docker-mailserver:latest
     hostname: mail
     domainname: nteum.com
     container_name: servidor-correo
     ports:
-      - "25:25"
-      - "143:143"
-      - "465:465"
+      - "26:25"
+      - "144:143"
+      - "466:465"
       - "2587:587"
-      - "993:993"
+      - "994:993"
     volumes:
-      - ./config:/tmp/docker-mailserver
-      - ./maildata:/var/mail
-      - ./state:/var/mail-state
-      - ./logs:/var/log/mail
+      - /setup/local/servidor-correo/config:/tmp/docker-mailserver
+      - /setup/local/servidor-correo/maildata:/var/mail
+      - /setup/local/servidor-correo/state:/var/mail-state
+      - /setup/local/servidor-correo/logs:/var/log/mail
     environment:
       - ENABLE_SPAMASSASSIN=1
       - ENABLE_CLAMAV=1
@@ -121,7 +121,7 @@ services:
     image: olbat/cupsd:latest
     container_name: impresion-cliente
     ports:
-      - "1631:631"  # cambia el puerto para evitar conflicto si corre en el mismo host
+      - "1631:631"
     command: >
       bash -c "sleep infinity"
     environment:

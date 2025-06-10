@@ -12,10 +12,10 @@ services:
       - "587:587"
       - "993:993"
     volumes:
-      - ./local/config:/tmp/docker-mailserver
-      - ./local/maildata:/var/mail
-      - ./local/state:/var/mail-state
-      - ./local/logs:/var/log/mail
+      - /setup/local/config:/tmp/docker-mailserver
+      - /setup/local/maildata:/var/mail
+      - /setup/local/state:/var/mail-state
+      - /setup/local/logs:/var/log/mail
     environment:
       - ENABLE_SPAMASSASSIN=0
       - ENABLE_CLAMAV=0
