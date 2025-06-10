@@ -34,7 +34,7 @@ services:
           read only = no
           list = yes
         ' > /etc/rsyncd.conf &&
-        rsync --daemon --no-detach && sleep infinity
+        rsync --daemon --no-detach
       "
 
 networks:
