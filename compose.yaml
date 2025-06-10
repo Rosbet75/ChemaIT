@@ -78,7 +78,6 @@ services:
       - docker-interno:/var/lib/docker
       - ./routes:/routes:ro
       - ./utilities:/utilities
-      - ./servidor-backup/local/respaldo:/respaldo
     restart: always
 
   servicios_externos:
