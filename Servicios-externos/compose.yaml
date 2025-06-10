@@ -12,29 +12,19 @@ services:
 
 ######################################################################
 
-  servidor-correo:
-    image: mailserver/docker-mailserver:latest
-    container_name: servidor-correo
-    hostname: mail
-    domainname: nteum.com
+  correo_ex:
+    image: juanluisbaptiste/postfix:latest
+    container_name: correo_ex
     ports:
-      - "25:25"
-      - "143:143"
-      - "465:465"
       - "1587:587"
-      - "993:993"
-    volumes:
-      - /setup/local/servidor-correo/config:/tmp/docker-mailserver
-      - /setup/local/servidor-correo/maildata:/var/mail
-      - /setup/local/servidor-correo/state:/var/mail-state
-      - /setup/local/servidor-correo/logs:/var/log/mail
-    environment:
-      - ENABLE_SPAMASSASSIN=1
-      - ENABLE_CLAMAV=1
-      - ENABLE_FAIL2BAN=1
-      - ONE_DIR=1
-      - ACCOUNT_PROVISIONER=FILE
     restart: always
+    environment:
+      SMTP_SERVER: nteum.com
+      SMTP_PORT: 587
+      SMTP_USERNAME: eneto
+      SMTP_PASSWORD: eneto
+      SERVER_HOSTNAME: nteum.com
+
 
 
 
