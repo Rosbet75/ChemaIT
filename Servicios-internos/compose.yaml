@@ -12,16 +12,17 @@ services:
       - "587:587"
       - "993:993"
     volumes:
-      - ./config:/tmp/docker-mailserver
-      - ./maildata:/var/mail
-      - ./state:/var/mail-state
-      - ./logs:/var/log/mail
+      - ./local/config:/tmp/docker-mailserver
+      - ./local/maildata:/var/mail
+      - ./local/state:/var/mail-state
+      - ./local/logs:/var/log/mail
     environment:
-      - ENABLE_SPAMASSASSIN=1
-      - ENABLE_CLAMAV=1
-      - ENABLE_FAIL2BAN=1
+      - ENABLE_SPAMASSASSIN=0
+      - ENABLE_CLAMAV=0
+      - ENABLE_FAIL2BAN=0
       - ONE_DIR=1
       - DMS_DEBUG=0
+
     cap_add:
       - NET_ADMIN
       - SYS_PTRACE
