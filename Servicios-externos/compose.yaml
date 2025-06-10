@@ -1,0 +1,135 @@
+
+services:
+
+  servidor-web-publico:
+    image: nginx:latest
+    container_name: servidor-web-publico
+    ports:
+      - "180:80"
+    volumes:
+      - /setup/local/servidor-web-publico/www:/usr/share/nginx/html:ro
+    restart: always
+
+######################################################################
+
+  servidor-correo:
+    image: mailserver/docker-mailserver:latest
+    container_name: servidor-correo
+    hostname: mail
+    domainname: nteum.com
+    ports:
+      - "25:25"
+      - "143:143"
+      - "465:465"
+      - "1587:587"
+      - "993:993"
+    volumes:
+      - /setup/local/servidor-correo/config:/tmp/docker-mailserver
+      - /setup/local/servidor-correo/maildata:/var/mail
+      - /setup/local/servidor-correo/state:/var/mail-state
+      - /setup/local/servidor-correo/logs:/var/log/mail
+    environment:
+      - ENABLE_SPAMASSASSIN=1
+      - ENABLE_CLAMAV=1
+      - ENABLE_FAIL2BAN=1
+      - ONE_DIR=1
+      - ACCOUNT_PROVISIONER=FILE
+    restart: always
+
+
+
+######################################################################
+
+  base-datos-mysql:
+    image: mysql:8.0
+    container_name: base-datos-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: eneto
+      MYSQL_USER: eneto
+      MYSQL_PASSWORD: eneto
+      MYSQL_DATABASE: nteum_db
+    ports:
+      - "3308:3306"
+    volumes:
+      - /setup/local/base-datos-mysql/data:/var/lib/mysql
+    restart: always
+
+######################################################################
+
+  servidor-ftp:
+    image: stilliard/pure-ftpd
+    container_name: servidor-ftp
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    environment:
+      PUBLICHOST: "localhost"        # Cambia por IP si usas otra máquina
+      FTP_USER_NAME: "eneto"         # Usuario FTP
+      FTP_USER_PASS: "eneto"         # Contraseña FTP
+      FTP_USER_HOME: "/home/ftpuser" # Home dentro del contenedor
+      ADDED_FLAGS: "-j -R"           # Opciones: -j (no crear usuarios unix), -R (modo pasivo)
+    volumes:
+      - /setup/local/servidor-ftp/data:/home/ftpuser
+    restart: always
+
+######################################################################
+
+  mongo:
+    image: mongo:6.0
+    container_name: foro-mongo
+    volumes:
+      - /setup/local/foro/mongo:/data/db
+    restart: always
+
+  redis:
+    image: redis:7
+    container_name: foro-redis
+    volumes:
+      - /setup/local/foro/redis:/data
+    restart: always
+
+  foro:
+    image: nodebb/docker:latest
+    container_name: foro
+    ports:
+      - "8081:4567"
+    environment:
+      - NODEBB_ADMIN_USERNAME=admin
+      - NODEBB_ADMIN_PASSWORD=eneto123
+      - NODEBB_ADMIN_EMAIL=admin@nteum.com
+      - NODE_ENV=production
+    depends_on:
+      - mongo
+      - redis
+    volumes:
+      - /setup/local/foro/data:/data
+    restart: always
+
+
+  impresion-cliente:
+    image: olbat/cupsd:latest
+    container_name: impresion-cliente
+    ports:
+      - "1631:631"  # cambia el puerto para evitar conflicto si corre en el mismo host
+    command: >
+      bash -c "sleep infinity"
+    environment:
+      CUPS_USER_ADMIN: eneto
+      CUPS_USER_PASSWORD: eneto
+    volumes:
+      - /setup/local/impresion-cliente/config:/etc/cups
+      - /setup/local/impresion-cliente/data:/var/spool/cups
+    restart: always
+
+
+
+######################################################################
+
+  ecommerce-ui:
+    image: rslim087/ecommerce-ui:latest
+    container_name: ecommerce-ui
+    ports:
+      - "3000:4000"
+    environment:
+      NODE_ENV: production
+    restart: always

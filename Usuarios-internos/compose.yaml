@@ -1,0 +1,14 @@
+services:
+  emailRelleno2:
+    image: juanluisbaptiste/postfix:latest
+    container_name: correo
+    ports:
+      - "589:589"
+    restart: always
+    environment:
+      SMTP_SERVER: nteum.com        # Replace with your actual SMTP server
+      SMTP_PORT: 589                       # Optional, can be omitted if 587
+      SMTP_USERNAME: eneto         # Optional, set if authentication is needed
+      SMTP_PASSWORD: eneto        # Mandatory if SMTP_USERNAME is set
+      SERVER_HOSTNAME: nteum.com # Replace with your mail domain
+  
