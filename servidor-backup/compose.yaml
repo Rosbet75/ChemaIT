@@ -8,9 +8,6 @@ services:
       - "873:873"
     volumes:
       - /setup/local/respaldo:/data
-    networks:
-      red_servidores:
-        ipv4_address: 172.172.20.20
     restart: always
     command: >
       sh -c "
@@ -36,8 +33,3 @@ services:
         ' > /etc/rsyncd.conf &&
         rsync --daemon --no-detach
       "
-
-networks:
-  red_servidores:
-    external: true
-    name: chemait_red_servidores

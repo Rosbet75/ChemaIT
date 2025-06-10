@@ -65,7 +65,7 @@ services:
       - "3307:3307"
     command: >
       bash -c "apt update &&
-               apt install -y openssh-server net-tools iputils-ping curl iproute2 && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/datostest.sh && bash /setup/datostest.sh && tail -f /dev/null"
+               apt install -y kmod openssh-server net-tools iputils-ping curl iproute2 && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/datostest.sh && bash /setup/datostest.sh && tail -f /dev/null"
     volumes:
       - ./Servicios-internos:/setup
       - docker-interno:/var/lib/docker
@@ -88,7 +88,7 @@ services:
     - "873:873"
     command: >
       bash -c "apt update &&
-               apt install -y openssh-server rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_dmz_routes.sh &&
+               apt install -y kmod openssh-server rsync net-tools iputils-ping curl iproute2 && chmod +x /routes/red_dmz_routes.sh &&
                bash /routes/red_servidores_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
                tail -f /dev/null"
     volumes:
@@ -111,7 +111,7 @@ services:
         ipv4_address: 172.172.30.10
     command: >
       bash -c "apt update &&
-               apt install -y openssh-server net-tools iputils-ping curl iproute2 && chmod +x /routes/red_dmz_routes.sh &&
+               apt install -y kmod openssh-server net-tools iputils-ping curl iproute2 && touch /etc/modules && chmod +x /routes/red_dmz_routes.sh &&
                bash /routes/red_dmz_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh && tail -f /dev/null "
     volumes:
       - ./Servicios-externos:/setup
@@ -148,7 +148,7 @@ services:
         ipv4_address: 172.172.10.10
     command: >
       bash -c "apt update &&
-               apt install -y openssh-server net-tools iputils-ping curl iproute2 &&
+               apt install -y kmod openssh-server net-tools iputils-ping curl iproute2 &&
                bash /routes/red_usuarios_routes.sh && chmod +x /utilities/dockerInstaller.sh && /utilities/dockerInstaller.sh && chmod +x /setup/sshkeys.sh && bash /setup/sshkeys.sh &&
                tail -f /dev/null"
     volumes:
@@ -170,7 +170,7 @@ services:
         ipv4_address: 172.172.40.20
     command: >
       bash -c "apt update &&
-               apt install -y openssh-client net-tools iputils-ping curl htop iproute2 &&
+               apt install -y kmod openssh-client net-tools iputils-ping curl htop iproute2 &&
                bash /routes/red_admin_routes.sh &&
                tail -f /dev/null"
     volumes:
@@ -196,7 +196,7 @@ services:
         ipv4_address: 172.172.50.2
     
     command: >
-      bash -c "apt update && apt install -y openssh-client iptables iproute2 net-tools iputils-ping curl tcpdump && sysctl -w net.ipv4.ip_forward=1 && echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf && bash /routes/firewall_rules.sh && tail -f /dev/null && sleep infinity"
+      bash -c "apt update && apt install -y kmod openssh-client iptables iproute2 net-tools iputils-ping curl tcpdump && sysctl -w net.ipv4.ip_forward=1 && echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf && bash /routes/firewall_rules.sh && tail -f /dev/null && sleep infinity"
     
     restart: always
     volumes:

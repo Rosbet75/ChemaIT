@@ -1,3 +1,28 @@
 netstat -tlnp | grep sshd
 ps aux | grep sshd
 ssh -i /keys/llave_servicios_internos.pem root@172.172.20.10
+
+interno
+172.172.20.10
+backup
+172.172.20.20
+externos
+172.172.30.10
+cliente
+172.172.10.10
+admin_test
+172.172.40.20
+
+firewall
+networks:
+      red_usuarios:
+        ipv4_address: 172.172.10.2
+      red_servidores:
+        ipv4_address: 172.172.20.2
+      red_dmz:
+        ipv4_address: 172.172.30.2
+      red_admin:
+        ipv4_address: 172.172.40.2
+      red_impresion:
+        ipv4_address: 172.172.50.2
+    

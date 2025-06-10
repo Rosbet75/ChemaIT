@@ -1,0 +1,9 @@
+copien direccion ip 172.172.30.10 en el puerto 873 /setup/logs/docker/dockerd.log
+
+/setup/local/respaldoexterno/
+
+copien direccion ip 172.172.20.10 en el puerto 873 /setup/logs/docker/dockerd.log
+
+/setup/local/respaldointerno
+
+service start 
