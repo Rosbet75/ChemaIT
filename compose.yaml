@@ -165,7 +165,7 @@ services:
     
     restart: always
     volumes:
-      - ./routes:/routes:ro
+      - ./routes:/routes
       - ./LOGS:/LOGS
       - ./utilities:/utilities
     healthcheck:
