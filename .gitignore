@@ -48,3 +48,5 @@ config/secrets.yml
 
 # Ignorar archivos de configuración temporales y sockets de LibreOffice
 Servicios-internos/local/libreoffice/config/.XDG/
+
+
