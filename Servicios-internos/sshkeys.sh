@@ -11,6 +11,9 @@ PUBLIC_KEY_PATH="${PRIVATE_KEY_PATH}.pub"
 # Crear el directorio si no existe
 mkdir -p "$KEY_DIR"
 
+[ -f "$PRIVATE_KEY_PATH" ] && rm -f "$PRIVATE_KEY_PATH"
+[ -f "$PUBLIC_KEY_PATH" ] && rm -f "$PUBLIC_KEY_PATH"
+
 # Generar las claves, sobrescribiendo si ya existen
 ssh-keygen -t rsa -b 4096 -f "$PRIVATE_KEY_PATH" -N "" -C "$USER@localhost"
 
@@ -25,3 +28,5 @@ grep -qxFf "$PUBLIC_KEY_PATH" "$HOME/.ssh/authorized_keys" 2>/dev/null || cat "$
 chmod 600 "$HOME/.ssh/authorized_keys"
 
 echo "✅ Claves generadas en $KEY_DIR y habilitadas para acceso SSH a $USER@localhost"
+
+bash /utilities/sshconfig.sh
