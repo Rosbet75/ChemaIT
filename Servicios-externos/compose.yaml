@@ -21,7 +21,7 @@ services:
       - "25:25"
       - "143:143"
       - "465:465"
-      - "587:587"
+      - "1587:587"
       - "993:993"
     volumes:
       - /setup/local/servidor-correo/config:/tmp/docker-mailserver
