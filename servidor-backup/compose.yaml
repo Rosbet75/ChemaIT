@@ -14,7 +14,7 @@ services:
     restart: always
     command: >
       sh -c "
-        apt add --no-cache rsync &&
+        apk add --no-cache rsync &&
         adduser -D backupuser &&
         echo 'backupuser:secret123' > /etc/rsyncd.secrets &&
         chmod 600 /etc/rsyncd.secrets &&
