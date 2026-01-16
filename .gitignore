@@ -1,0 +1,53 @@
+# Ignorar archivos de bases de datos MySQL
+Servicios-internos/local/base-datos/data/
+*.sql
+*.sql.gz
+*.sql.zip
+*.sock
+
+# Ignorar archivos temporales del sistema
+*.log
+*.pid
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Archivos generados por editores
+.vscode/
+.idea/
+*.code-workspace
+
+# Archivos de entorno
+.env
+.env.*
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de compilación y dependencias (si usas algún lenguaje compilado)
+build/
+dist/
+node_modules/
+vendor/
+out/
+
+# Archivos de configuración de contenedores y volúmenes
+docker-compose.override.yml
+*.local.yml
+
+# Ignorar backups automáticos
+*~
+*.old
+
+# Ignorar archivos de configuración sensible
+config/database.yml
+config/secrets.yml
+
+# Ignorar archivos de configuración temporales y sockets de LibreOffice
+Servicios-internos/local/libreoffice/config/.XDG/
+
+
+/keys/*

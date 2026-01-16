@@ -1,0 +1,137 @@
+version: "3.9"
+services:
+  mailserver:
+    image: mailserver/docker-mailserver:latest
+    hostname: mail
+    domainname: nteum.com
+    container_name: mailserver
+    ports:
+      - "25:25"
+      - "143:143"
+      - "465:465"
+      - "587:587"
+      - "993:993"
+    volumes:
+      - /setup/local/config:/tmp/docker-mailserver
+      - /setup/local/maildata:/var/mail
+      - /setup/local/state:/var/mail-state
+      - /setup/local/logs:/var/log/mail
+    environment:
+      - ENABLE_SPAMASSASSIN=0
+      - ENABLE_CLAMAV=0
+      - ENABLE_FAIL2BAN=0
+      - ONE_DIR=1
+      - DMS_DEBUG=0
+
+    cap_add:
+      - NET_ADMIN
+      - SYS_PTRACE
+    restart: always
+######################################################################
+
+  acceso-unico:
+    image: osixia/openldap:latest
+    container_name: acceso-unico
+    ports:
+      - "0.0.0.0:389:389"
+      - "0.0.0.0:636:636"
+    # command: >
+    #   bash -c "slapadd -F /etc/ldap/slapd.d -l /path/to/initial.ldif &&
+    #   chown -R openldap:openldap /var/lib/ldap"
+    command: > 
+      bash -c "sleep infinity"
+    environment:
+      LDAP_ORGANISATION: "NtEum S.A."
+      LDAP_DOMAIN: "nteum.local"
+      LDAP_ADMIN_PASSWORD: "eneto"
+      LDAP_CONFIG_PASSWORD: "eneto"
+      LDAP_TLS: "false"
+    # volumes:
+    #   - /setup/local/acceso-unico/data:/var/lib/ldap
+    #   - /setup/local/acceso-unico/config:/etc/ldap/slapd.d
+
+    restart: always
+
+
+
+  datos-compartidos-windows:
+    image: dperson/samba
+    container_name: datos-compartidos-windows
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "1445:445/tcp"
+    volumes:
+      - /setup/local/datos-compartidos-windows:/mount
+    command:
+      - -u
+      - "eneto;eneto"
+      - -s
+      - "public;/mount;yes;no;no;eneto"
+      - -w
+      - "WORKGROUP"
+    restart: always
+
+  impresion-red:
+    image: olbat/cupsd:latest
+    container_name: impresion-red
+    ports:
+      - "631:631"
+    command: > 
+      bash -c "sleep infinity"
+    environment:
+      CUPS_USER_ADMIN: eneto
+      CUPS_USER_PASSWORD: eneto
+    volumes:
+      - /setup/local/impresion-red/config:/etc/cups
+      - /setup/local/impresion-red/data:/var/spool/cups
+    restart: always
+
+
+
+  servidor-web:
+    image: nginx:latest
+    container_name: servidor-web
+    ports:
+      - "8080:80"
+    volumes:
+      - /setup/local/servidor-web/www:/usr/share/nginx/html
+    restart: always
+
+
+
+  base-datos:
+    image: mysql:latest
+    container_name: base-datos
+    environment:
+      MYSQL_ROOT_PASSWORD: eneto
+      MYSQL_USER: eneto
+      MYSQL_PASSWORD: eneto
+      MYSQL_DATABASE: app_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    restart: always
+
+volumes:
+  dbdata:
+
+
+
+
+
+  # libreoffice:
+  #   image: linuxserver/libreoffice:latest
+  #   container_name: libreoffice
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=America/Mexico_City
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - /setup/local/libreoffice/config:/config
+  #     - /setup/local/libreoffice/documentos:/documents
+  #   restart: unless-stopped
